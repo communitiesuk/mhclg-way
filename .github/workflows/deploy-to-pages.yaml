@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    uses: ./.github/workflows/test.yaml
+    with:
+      upload-artifact: true
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.0
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@22fdc77bf4148f810455b226c90fb81b5cbc00a7 # v1.171.0
+        with:
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Build middleman site
+        run: bundle exec middleman build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: "build"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@decdde0ac072f6dcbe43649d82d9c635fff5b4e4 # v4.0.4

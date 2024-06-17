@@ -1,0 +1,26 @@
+/**
+ * Page Banner Component
+ *
+ * Example Usage:
+ *
+ * <div class="page-banner">
+ *   Lorem ipsum dolor est
+ * </div>
+ */
+
+.page-banner {
+  padding: 10px 0 8px;
+  margin-top: 15px;
+
+  @include govuk-media-query(tablet) {
+    padding-bottom: 10px;
+  }
+
+  border-bottom: 1px solid $govuk-border-colour;
+
+  p {
+    margin: 0;
+    color: $govuk-text-colour;
+    @include govuk-font($size: 16);
+  }
+}

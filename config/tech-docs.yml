@@ -1,0 +1,39 @@
+# Host to use for canonical URL generation (without trailing slash)
+host: https://dluhc-way.digital.levellingup.gov.uk
+service_link: /
+
+# Header-related options
+show_govuk_logo: false
+service_name: The DLUHC Way
+description: Technical standards and guidance used by teams building software at DLUHC
+
+# Links to show on right-hand-side of header
+header_links:
+  GitHub: https://github.com/communitiesuk/dluhc-way
+
+footer_links: 
+  Accessibility: /accessibility.html
+
+enable_search: true
+
+# Tracking ID from Google Analytics (e.g. UA-XXXX-Y)
+# ga_tracking_id: UA-111409592-1
+
+# Table of contents depth – how many levels to include in the table of contents.
+# If your ToC is too long, reduce this number and we'll only show higher-level
+# headings.
+max_toc_heading_level: 6
+
+# Prevent robots from indexing (e.g. whilst in development)
+prevent_indexing: true
+
+show_contribution_banner: true
+github_repo: communitiesuk/dluhc-way
+github_branch: main
+
+# Ownership for page reviews
+default_owner_slack: '#dluhc-way'
+owner_slack_workspace: communities-govuk
+
+redirects:
+  /example-path/example.html: /example-path/new-subfolder/index.html#example
