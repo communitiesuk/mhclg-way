@@ -20,7 +20,7 @@ Update your dependencies frequently rather than in ‘big bang’ batches. This 
 
 There are tools which scan GitHub repositories and raise pull requests (PRs) when they find dependency updates. Teams at DLUHC are using:
 
-* [Dependabot][] - used by GOV.UK, GOV.UK Pay, GovWifi and Digital Marketplace. The GOV.UK docs contain [guidance on using Dependabot][] and [how the PRs raised should be reviewed][]
+* [Dependabot][] - used by Funding Service Design, Delta and E-CLAIMS. The GOV.UK docs contain [guidance on using Dependabot][] and [how the PRs raised should be reviewed][]
     > Note: this is separate from the [security-only updates provided automatically by GitHub Dependabot].
 
     > Note: repos requiring at least one approving review for PRs cannot, and should not, use [Dependabot's auto-approve-and-merge facility].
@@ -33,7 +33,7 @@ There are tools which scan GitHub repositories and raise pull requests (PRs) whe
 
 All the above tools are free to use on public repositories.
 
-The CDIO Cyber Security team will review the repositories that do not have dependency management in use and will turn on Dependabot where required. Service teams are free to use a different tool such as [Snyk](https://snyk.io/), but will need to add a `no-dependabot` tag to their repository for monitoring purposes. You can [contact Cyber Security](https://gds.slack.com/archives/CCMPJKFDK) if you have any questions or need help.
+The DLUHC Cyber Security team will review the repositories that do not have dependency management in use and will turn on Dependabot where required.  You can [contact Cyber Security](https://mhclg.service-now.com/) if you have any questions or need help.
 
 ## Monitor for vulnerabilities
 
@@ -43,17 +43,13 @@ Most of the tooling that helps you stay on top of dependency updates will also h
 
 ### [GitHub security alerts][]
 
-When GitHub discovers or is informed about a vulnerability, it will email an alert to the repository owner and users with admin access. GitHub security alerts will be turned on for all Alphagov repositories. If services wish to opt out of security advisories on their repository, they can contact Cyber Security and then add the `no-security-advisories` tag to their repository.
+When GitHub discovers or is informed about a vulnerability, it will email an alert to the repository owner and users with admin access. GitHub security alerts will be turned on for all communitiesuk repositories. If services wish to opt out of security advisories on their repository, they can contact Cyber Security and then add the `no-security-advisories` tag to their repository.
 
 ### [Snyk][]
 
 Snyk is capable of detecting vulnerabilities in a variety of languages including all the [DLUHC supported programming languages][]. You can configure Snyk to raise PRs, email regular reports and alert you when new vulnerabilities are detected.
 
 If you have an old repository that is receiving security alerts but is not being worked on or maintained, you may wish to archive your repository instead.
-
-### Splunk dashboards
-
-The Cyber Security team has created a Splunk dashboard. This gives service teams visibility of vulnerabilities in their repositories. To allow for your repositories to be categorised correctly in the Splunk dashboard, please make sure you tag your repository with the service name. If you would like to access the dashboard, [contact Cyber Security](https://gds.slack.com/archives/CCMPJKFDK).
 
 ## Managing Docker dependencies
 
@@ -79,7 +75,6 @@ Minimise the things you need to monitor by minimising dependencies where possibl
 
 Also consider managed solutions where possible. For example:
 
-* Use [GOV.UK PaaS buildpacks][] so you do not have to monitor for Operating System (OS), runtime or programming language vulnerabilities
 * Consider managed container orchestration technology such as [AWS Fargate][] or similar so you do not have to monitor for vulnerabilities in your OS or control plane
 
 [Dependabot's auto-approve-and-merge facility]: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
@@ -100,6 +95,5 @@ Also consider managed solutions where possible. For example:
 [GitHub security alerts]: https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
 [official base images]: https://docs.docker.com/docker-hub/official_images/
 [Snyk container vulnerability management tooling]: https://snyk.io/product/container-vulnerability-management/
-[GOV.UK PaaS buildpacks]: https://docs.cloud.service.gov.uk/deploying_apps.html#buildpacks
 [AWS Fargate]: https://aws.amazon.com/fargate/
 [RFC-167]: https://github.com/alphagov/govuk-rfcs/blob/main/rfc-167-auto-patch-dependencies.md
