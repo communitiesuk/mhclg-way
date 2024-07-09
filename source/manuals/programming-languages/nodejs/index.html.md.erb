@@ -1,13 +1,13 @@
 ---
-title: Using Node.js at DLUHC
+title: Using Node.js at MHCLG
 last_reviewed_on: 2000-01-01
 review_in: 12 months
-owner_slack: '#dluhc-way'
+owner_slack: '#mhclg-way'
 ---
 
 # <%= current_page.data.title %>
 
-This document describes how we write Node.js code at DLUHC. It is a list of
+This document describes how we write Node.js code at MHCLG. It is a list of
 guidelines that developers should follow in order to make code more consistent
 across all Node.js projects, making it easy for developers to change projects
 or start new ones.
@@ -416,13 +416,13 @@ that a Node developer would have trouble reading your code is advised against.
 
 It is important to remember that we use the
 [govuk-frontend](https://github.com/alphagov/govuk-frontend) to build pages on websites
-at DLUHC. This restricts the choice of webservers to ones that easily support rendering
+at MHCLG. This restricts the choice of webservers to ones that easily support rendering
 content using [Nunjucks](https://mozilla.github.io/nunjucks/). This rules out many
 currently popular webservers that use React or other templating approaches.
 
 > Use Koa or Express for web applications, avoid lesser-known frameworks
 
-Express is widely used at DLUHC. It is the oldest Node.js webserver framework and there is a
+Express is widely used at MHCLG. It is the oldest Node.js webserver framework and there is a
 wide range of examples and helper libraries available on the wider internet. However is has
 less support for more modern JavaScript features, most notable support for `await/async`.
 These issues require extra workarounds.
@@ -521,7 +521,7 @@ versions of Node.js.
 
 ## Further reading or information
 
-In the DLUHC context, the guidelines provided in the links below are advisory
+In the MHCLG context, the guidelines provided in the links below are advisory
 only. The guidance provided here takes precedence in case of conflicts.
 
 * **[NodeJS Security best practices]** - A guide to security best practices by the Node working group.
