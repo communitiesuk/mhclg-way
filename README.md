@@ -4,8 +4,8 @@
 
 ### Making documentation changes (using the Github interface)
 
-At the bottom of each page of the [hosted DLUHC Way]() there is a `View source` link. This link will take you to to 
-the corresponding [Github](https://github.com/communitiesuk/dluhc-way) page where you can use the pencil icon (:pencil:)
+At the bottom of each page of the [hosted MHCLG Way]() there is a `View source` link. This link will take you to to 
+the corresponding [Github](https://github.com/communitiesuk/mhclg-way) page where you can use the pencil icon (:pencil:)
 in the interface to propose edits to a page.
 
 Once you have made your changes you can write a description, click the green `Propose changes` button, and on the 
@@ -15,7 +15,7 @@ following page click the green `Create pull request` button.
 
 To make changes edit the source files in the [source](source) folder.
 
-The bulk of the documentation that makes up the DLUHC Way can be found in files located in the `source/standards` and 
+The bulk of the documentation that makes up the MHCLG Way can be found in files located in the `source/standards` and 
 `source/manuals` directories.
 
 ### Adding documentation
@@ -28,21 +28,21 @@ You then need to manually add your new page to one of the menu files in [source/
 
 ### Raising and merging PRs to this repo
 
-To submit changes to this repo, raise a PR in the usual way and these will be regularly reviewed by The DLUHC Way forum 
+To submit changes to this repo, raise a PR in the usual way and these will be regularly reviewed by The MHCLG Way forum 
 group that meets once a month.  Reviewing and merging PRs at any time is fine, the forum will also review merged PRs as 
 part of its regular meeting.
 
 Any open non-draft PRs that have been more than 1 month without further comments, suggestions or alterations will be 
 merged by the forum group unless there is an explicit "DO NOT MERGE" somewhere in the title or description.
 
-There is a DLUHC Slack channel `#dluhc-way` where these are discussed.
+There is a MHCLG Slack channel `#mhclg-way` where these are discussed.
 
 ### Making functional changes
 
-The DLUHC Way is built from the [Tech Docs Template](https://github.com/alphagov/tech-docs-template)
+The MHCLG Way is built from the [Tech Docs Template](https://github.com/alphagov/tech-docs-template)
 repository. Any functional changes and bug fixes should be made to that project first, then follow the
 instructions [here](https://github.com/alphagov/tech-docs-template#updating-a-project-to-use-the-latest-template)
-to update the DLUHC Way.
+to update the MHCLG Way.
 
 ## Running Locally
 
@@ -53,8 +53,8 @@ To preview or build the website, we need to use the terminal.
 You can use the Dockerfile provided:
 
 ```
-docker build . -t dluhc-way
-docker run --rm -p 4567:4567 -p 35729:35729 -v $(pwd):/usr/src/docs -it dluhc-way
+docker build . -t mhclg-way
+docker run --rm -p 4567:4567 -p 35729:35729 -v $(pwd):/usr/src/docs -it mhclg-way
 ```
 
 Otherwise, the following steps will get Middleman running locally.
@@ -72,8 +72,8 @@ If you update it, please update the [Dockerfile](./Dockerfile).
 Clone the repository using:
 
 ```
-git clone https://github.com/communitiesuk/dluhc-way.git
-cd dluhc-way
+git clone https://github.com/communitiesuk/mhclg-way.git
+cd mhclg-way
 ```
 
 #### Additional commands for Apple silicon

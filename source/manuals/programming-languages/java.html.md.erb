@@ -2,20 +2,20 @@
 title: Java style guide
 last_reviewed_on: 2000-01-01
 review_in: 6 months
-owner_slack: '#dluhc-way'
+owner_slack: '#mhclg-way'
 ---
 
 # <%= current_page.data.title %>
 
-The purpose of this style guide is to provide some conventions for working on Java code within DLUHC.
+The purpose of this style guide is to provide some conventions for working on Java code within MHCLG.
 
 The [Google Java style guide](https://google.github.io/styleguide/javaguide.html) is a good starting point. The old [Sun/Oracle Java style guide](https://www.oracle.com/java/technologies/cc-java-programming-language.html) is still largely relevant but it has not been updated since 1999 and does not reflect recent changes to the language.
 
-The more far-reaching _[Java for Small Teams](https://ncrcoe.gitbooks.io/java-for-small-teams/content/)_ ebook can be read online at no cost. While not free, _[Effective Java](https://www.pearson.com/en-gb/subject-catalog/p/effective-java/P200000000138/9780134685991/)_ by Joshua Bloch (Addison-Wesley, 2017) is also an excellent resource. The DLUHC Library has physical copies of the book or you can [buy a copy using the Learning and Development budget](https://sites.google.com/a/digital.cabinet-office.gov.uk/gds/learning-and-development/apply-to-use-the-learning-and-development-budget).
+The more far-reaching _[Java for Small Teams](https://ncrcoe.gitbooks.io/java-for-small-teams/content/)_ ebook can be read online at no cost. While not free, _[Effective Java](https://www.pearson.com/en-gb/subject-catalog/p/effective-java/P200000000138/9780134685991/)_ by Joshua Bloch (Addison-Wesley, 2017) is also an excellent resource. The MHCLG Library has physical copies of the book or you can [buy a copy using the Learning and Development budget](https://sites.google.com/a/digital.cabinet-office.gov.uk/gds/learning-and-development/apply-to-use-the-learning-and-development-budget).
 
 While the above resources are good guides, they may conflict with either each other or your team’s established practices. We favour consistency across our code, so make sure that you have the agreement of your team when considering using a new or different method or paradigm to those currently in use.
 
-We generally use [IntelliJ IDEA](https://www.jetbrains.com/idea/) within DLUHC. Using it consistently helps when ensemble programming (pairing and mobbing). DLUHC have purchased licences for the commercial editions of IntelliJ IDEA for some teams. Some features of IntelliJ IDEA like [Code With Me](https://www.jetbrains.com/code-with-me/) and [JetBrains AI](https://www.jetbrains.com/ai/) have not passed an information assurance review and must not be used.
+We generally use [IntelliJ IDEA](https://www.jetbrains.com/idea/) within MHCLG. Using it consistently helps when ensemble programming (pairing and mobbing). MHCLG have purchased licences for the commercial editions of IntelliJ IDEA for some teams. Some features of IntelliJ IDEA like [Code With Me](https://www.jetbrains.com/code-with-me/) and [JetBrains AI](https://www.jetbrains.com/ai/) have not passed an information assurance review and must not be used.
 
 ## Code formatting
 
@@ -23,9 +23,9 @@ Variable and field names should match the names of their types (for example, an 
 
 Always use curly braces around the body of an `if`, `else`, `for`, `do` or `while` statement, even if it’s only a single line. Follow the Kernighan and Ritchie (K&R) ‘Egyptian brackets’ style where there is no line break before the opening brace. See the [braces section of the Google Java style guide](https://google.github.io/styleguide/javaguide.html#s4.1-braces) for more details.
 
-Use the [DLUHC Way EditorConfig file](editorconfig), which has settings for things like code indentation. Place a copy of this file named `.editorconfig` in the root of your project to have IntelliJ IDEA and some other editors automatically apply the settings. If your editor does not support EditorConfig, manually configure its settings to match.
+Use the [MHCLG Way EditorConfig file](editorconfig), which has settings for things like code indentation. Place a copy of this file named `.editorconfig` in the root of your project to have IntelliJ IDEA and some other editors automatically apply the settings. If your editor does not support EditorConfig, manually configure its settings to match.
 
-Some Java teams within DLUHC have had success using the [Spotless](https://github.com/diffplug/spotless) auto-formatter. Some of the formatting styles supported by Spotless are quite opinionated and may want to make lots of changes if added to an existing project. The `ratchetFrom` option makes Spotless only format changed files (though this can require it to check out a lot of code in some cases, which may have performance implications if used as part of a build pipeline). Alternatively, you may wish to configure Spotless to match your existing conventions. For a new project, it’s probably easiest to use a style’s default settings.
+Some Java teams within MHCLG have had success using the [Spotless](https://github.com/diffplug/spotless) auto-formatter. Some of the formatting styles supported by Spotless are quite opinionated and may want to make lots of changes if added to an existing project. The `ratchetFrom` option makes Spotless only format changed files (though this can require it to check out a lot of code in some cases, which may have performance implications if used as part of a build pipeline). Alternatively, you may wish to configure Spotless to match your existing conventions. For a new project, it’s probably easiest to use a style’s default settings.
 
 ## Java EE and Jakarta EE
 
@@ -154,7 +154,7 @@ As an alternative to comments, commit messages can be a good place for describin
 
 Use JUnit for unit tests. It can also be used for many integration tests.
 
-The latest [JUnit 5](https://junit.org/junit5/) is not a drop-in replacement for [JUnit 4](https://junit.org/junit4/). The [JUnit Vintage test engine](https://junit.org/junit5/docs/current/user-guide/#migrating-from-junit4) makes it possible to run JUnit 4 tests within JUnit 5, though not all JUnit 4 features are supported. If you use lots of JUnit 4 rules and alternative runners, or rely on other testing libraries that integrate with JUnit 4, you will have to make more changes. Teams within DLUHC have found it typically takes a few days to upgrade a project from JUnit 4 to JUnit 5 (keeping the test classes as JUnit 4 where possible). JUnit 4 continues to be maintained.
+The latest [JUnit 5](https://junit.org/junit5/) is not a drop-in replacement for [JUnit 4](https://junit.org/junit4/). The [JUnit Vintage test engine](https://junit.org/junit5/docs/current/user-guide/#migrating-from-junit4) makes it possible to run JUnit 4 tests within JUnit 5, though not all JUnit 4 features are supported. If you use lots of JUnit 4 rules and alternative runners, or rely on other testing libraries that integrate with JUnit 4, you will have to make more changes. Teams within MHCLG have found it typically takes a few days to upgrade a project from JUnit 4 to JUnit 5 (keeping the test classes as JUnit 4 where possible). JUnit 4 continues to be maintained.
 
 When you upgrade from JUnit 4 to JUnit 5, have a strategy for gradually making more and more of your test classes use JUnit 5. A good rule is to write all new test classes in JUnit 5 and to migrate over existing ones when you need to make major changes to them (generally it’s best to do the migration in a separate pull request first before making other changes).
 
@@ -207,7 +207,7 @@ You should use either [Gradle](https://gradle.org/) or [Maven](https://maven.apa
 
 ## Web frameworks
 
-The [Dropwizard](https://www.dropwizard.io/) web framework is used widely within DLUHC.
+The [Dropwizard](https://www.dropwizard.io/) web framework is used widely within MHCLG.
 
 Dropwizard 3.0.0 and Dropwizard 4.0.0 were released simutaneously in March 2023. They have equivalent functionality but Dropwizard 3 continues to use Java EE and the `javax` package namespace while Dropwizard 4 migrates to [Jakarta EE](https://jakarta.ee/) and the `jakarta` package namespace (Jakarta EE is the successor to Java EE). It is easier to [upgrade to Dropwizard 3.0.x](https://www.dropwizard.io/en/release-3.0.x/manual/upgrade-notes/upgrade-notes-3_0_x.html) than to [upgrade to Dropwizard 4.0.x](https://www.dropwizard.io/en/release-4.0.x/manual/upgrade-notes/upgrade-notes-4_0_x.html).
 

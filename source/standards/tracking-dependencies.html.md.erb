@@ -8,7 +8,7 @@ review_in: 6 months
 
 When you develop and operate a service, it’s important to keep any third party dependencies you use up-to-date. By doing this, you can avoid potential security vulnerabilities.
 
-Any automated tools you use to manage third party dependencies should be compatible with [DLUHC supported programming languages][]. The tools you use should neither slow down your development process nor disclose potential security vulnerabilities to the public.
+Any automated tools you use to manage third party dependencies should be compatible with [MHCLG supported programming languages][]. The tools you use should neither slow down your development process nor disclose potential security vulnerabilities to the public.
 
 You can read more about [managing software dependencies in the Service Manual][], where you will find a list of common dependency management tools.
 
@@ -18,7 +18,7 @@ Our [programming language style guides][] also contain language-specific advice 
 
 Update your dependencies frequently rather than in ‘big bang’ batches. This works well with [continuous delivery][] principles and makes sure the changes introduced are small and can be automatically tested.
 
-There are tools which scan GitHub repositories and raise pull requests (PRs) when they find dependency updates. Teams at DLUHC are using:
+There are tools which scan GitHub repositories and raise pull requests (PRs) when they find dependency updates. Teams at MHCLG are using:
 
 * [Dependabot][] - used by GOV.UK, GOV.UK Pay, GovWifi and Digital Marketplace. The GOV.UK docs contain [guidance on using Dependabot][] and [how the PRs raised should be reviewed][]
     > Note: this is separate from the [security-only updates provided automatically by GitHub Dependabot].
@@ -47,7 +47,7 @@ When GitHub discovers or is informed about a vulnerability, it will email an ale
 
 ### [Snyk][]
 
-Snyk is capable of detecting vulnerabilities in a variety of languages including all the [DLUHC supported programming languages][]. You can configure Snyk to raise PRs, email regular reports and alert you when new vulnerabilities are detected.
+Snyk is capable of detecting vulnerabilities in a variety of languages including all the [MHCLG supported programming languages][]. You can configure Snyk to raise PRs, email regular reports and alert you when new vulnerabilities are detected.
 
 If you have an old repository that is receiving security alerts but is not being worked on or maintained, you may wish to archive your repository instead.
 
@@ -63,7 +63,7 @@ Like dependencies, Docker base images are also frequently updated. If you run co
 
 ### Specifying Docker image tags
 
-The DLUHC Way Dockerfile guidance contains advice on how
+The MHCLG Way Dockerfile guidance contains advice on how
 to use [Docker image tags](/manuals/programming-languages/docker.html#using-tags-and-digests-in-from-instructions)
 to specify the exact container image version to use.
 
@@ -84,7 +84,7 @@ Also consider managed solutions where possible. For example:
 
 [Dependabot's auto-approve-and-merge facility]: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
 [security-only updates provided automatically by GitHub Dependabot]: https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-[DLUHC supported programming languages]: /standards/programming-languages.html#content
+[MHCLG supported programming languages]: /standards/programming-languages.html#content
 [managing software dependencies in the Service Manual]: https://www.gov.uk/service-manual/technology/managing-software-dependencies
 [programming language style guides]: /manuals/programming-languages.html
 [managing Python dependencies]: /manuals/programming-languages/python/python.html#dependencies

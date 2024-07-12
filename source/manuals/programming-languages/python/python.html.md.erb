@@ -2,13 +2,13 @@
 title: Python style guide
 last_reviewed_on: 2000-01-01
 review_in: 6 months
-owner_slack: '#dluhc-way'
+owner_slack: '#mhclg-way'
 ---
 
 # <%= current_page.data.title %>
 
 This manual is designed to aid developers in writing Python code that is clear
-and consistent, within, and across, projects at DLUHC.
+and consistent, within, and across, projects at MHCLG.
 
 * [Code formatting](#code-formatting)
 * [Maximum line length of 120 characters](#maximum-line-length-of-120-characters)
@@ -23,7 +23,7 @@ We use [Black][] to format our code. Black is an opinionated formatter that foll
 language features such as metaclasses) we defer to the [Google Python style guide][GPSG].
 Use these as references unless something is explicitly mentioned here. These rules
 should be followed in conjunction with the advice on consistency on the main
-[programming languages manual page][the-dluhc-code-style-guides].
+[programming languages manual page][the-mhclg-code-style-guides].
 
 If you want to add a new rule or exception please create a pull request against this repo.
 
@@ -33,7 +33,7 @@ If you want to add a new rule or exception please create a pull request against 
 developing in a Unix terminal window. The vast majority of developers are now using an
 IDE which can handle a greater line length.
 
-Couple this with the fact that much of the time DLUHC developers are coding web apps and
+Couple this with the fact that much of the time MHCLG developers are coding web apps and
 have to deal with nested `JSON` objects, ORM model definitions/ queries, and error/ url
 strings and this convention begins to show its age.
 
@@ -184,7 +184,7 @@ characteristics - they should be:
 
     Security issues are found in libraries, so it is important to choose libraries that are
     maintained and to ensure your team has a strategy to ensure security updates are installed
-    without significant delay. The [how to manage third party software dependencies][the-dluhc-deps] section
+    without significant delay. The [how to manage third party software dependencies][the-mhclg-deps] section
     gives further context and discusses tools that can help, such as [snyk.io][].
 
 Your README should document an easy-to-follow process by which all your Python
@@ -195,7 +195,7 @@ Your pinned dependencies should be fully specified in a file called `requirement
 into your version control system (VCS). For projects with only a small number of dependencies, maintaining
 this manually (for example, installing with `pip install`, then using `pip freeze`) may be adequate.
 
-For larger projects, DLUHC recommends using [pip-tools][pip-tools] for managing dependencies.
+For larger projects, MHCLG recommends using [pip-tools][pip-tools] for managing dependencies.
 
 Put your top-level requirements in a `requirements.in` file, and then use `pip-compile` to generate a
 `requirements.txt` file. Both the .in and .txt files should be commited to your repository.
@@ -239,8 +239,8 @@ or in a `requirements-dev.txt` ([example](https://github.com/alphagov/digitalmar
 file otherwise.
 
 [PyPI]: https://pypi.org/
-[the-dluhc-deps]: /standards/tracking-dependencies.html
-[the-dluhc-code-style-guides]: /manuals/programming-languages.html
+[the-mhclg-deps]: /standards/tracking-dependencies.html
+[the-mhclg-code-style-guides]: /manuals/programming-languages.html
 [slack-python]: https://gds.slack.com/messages/python
 [GPSG]: https://google.github.io/styleguide/pyguide.html
 
