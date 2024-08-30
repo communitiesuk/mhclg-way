@@ -1,6 +1,6 @@
 ---
 title: Programming languages
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2024-08-30
 review_in: 12 months
 ---
 
@@ -23,34 +23,25 @@ This should make it easier for developers to:
 
 ## Frontend development
 
-The Service Manual has information on
-[using client-side JavaScript][manual_js]. For server-side JavaScript we use [Node.js][nodejs].
+The Service Manual has information on [using client-side JavaScript][manual_js].
+For server-side JavaScript we use [TypeScript][typescript].
 
-
-[nodejs]: https://nodejs.org/
+[typescript] : https://www.typescriptlang.org/
 [manual_js]: https://www.gov.uk/service-manual/technology/using-progressive-enhancement
 
-MHCLG projects using Node.js include:
+MHCLG projects using TypeScript include:
 
-- [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend)
-- [GOV.UK Pay](https://www.payments.service.gov.uk/)
-- [GOV.UK PaaS](https://www.cloud.service.gov.uk/) (TypeScript)
-- [GOV.UK Prototype Kit](https://govuk-prototype-kit.herokuapp.com/docs)
-- [GOV.UK One Login](https://www.sign-in.service.gov.uk/) - see [repositories in TypeScript][di-ts] and [in JavaScript][di-js]
+- [Electoral Registration Officer portal](https://github.com/communitiesuk/eip-ero-portal-ui)
+- [Register to Vote](https://www.gov.uk/register-to-vote)
+- [Apply for photo ID to vote](https://www.gov.uk/apply-for-photo-id-voter-authority-certificate)
+- see [repositories in TypeScript][di-ts]
 
-[di-ts]: https://github.com/search?l=TypeScript&q=user%3Aalphagov+topic%3Adigital-identity&type=Repositories
-[di-js]: https://github.com/search?l=JavaScript&q=user%3Aalphagov+topic%3Adigital-identity&type=Repositories
-
-You can use Node.js to render a web interface for your service. For example,
-GOV.UK Pay has created thin, client-facing applications that do not store
-data (although they may retrieve data from an API).
+[di-ts]: https://github.com/search?l=TypeScript&q=user%3Acommunitiesuk&type=Repositories
 
 You can use [TypeScript](https://www.typescriptlang.org/) when teams think it's
-appropriate. For example, the GOV.UK PaaS team uses TypeScript
-because they are used to working with a statically typed, compiled language,
-and they think the compilation and static-analysis tooling is better for
-their workflow. There's more information about TypeScript on the
-[Node.js page](/manuals/programming-languages/nodejs/).
+appropriate. For example, if you prefer a a statically typed, compiled language,
+and with static-analysis tooling. There's more information about TypeScript on the
+[TypeScript page](/manuals/programming-languages/typescript.html).
 
 ## Backend development
 
@@ -58,14 +49,18 @@ Our core languages for backend development are:
 
 - [Python](/manuals/programming-languages/python/python.html)
 - [Ruby](/manuals/programming-languages/ruby.html)
+- [Kotlin](/manuals/programming-languages/kotlin.html)
 
 We've chosen these languages because they are successfully used by
 teams at the moment, and we are confident in how to host and operate
 applications written in them. You should carry out new
 development in one of these languages.
 
-We are also currently exploring the use of Node.js in the backend for
-serverless systems, particularly in the Digital Identity programme.
+We are also currently exploring the use of [Rust][rust] in the backend for
+applications that are computationally demanding and need to run fast,
+particularly in the Energy Calculation as a Service project.
+
+[rust]: https://www.rust-lang.org/
 
 ### Python
 
