@@ -13,6 +13,7 @@ and consistent, within, and across, projects at MHCLG.
 * [Code formatting](#code-formatting)
 * [Maximum line length of 120 characters](#maximum-line-length-of-120-characters)
 * [Linting](#linting)
+* [Type hints](#type-hints)
 * [Environments](#environments)
 * [Dependencies](#dependencies)
 
@@ -116,6 +117,27 @@ For more information see [Python virtual environment primer](https://realpython.
 [direnv](https://direnv.net/) is used to manage environment variables.
 This ensures project specific variables do not clutter your main environment or the environment of other projects.
 direnv uses `.envrc` for general project specific variables and you can use a non version controlled `.secrets` to store sensitive information.
+
+## Type hints
+
+Python is a dynamically-typed language, which can allow for fast and easy development in the early days. However, the flexibility can quickly become hard to understand when a project has developed for a number of years across a number of developers. Therefore, all new projects other than prototypes or very short-lived things, should make use of type hints from the beginning. We recommend using [MyPy][mypy] with `strict` checks enabled as soon as possible. The longer you wait to turn on strict type hints, the more painful it may become if insufficient thought has been paid to appropriate type choices.
+
+We recommend running Mypy as a check in your CI tests, and optionally also a [pre-commit][pre-commit] check.
+
+### Example configuration
+
+Here is an example configuration for a new project in your `pyproject.toml`:
+
+```
+[tool.mypy]
+python_version = "3.11"
+
+strict = true
+```
+
+### With an existing codebase
+
+Existing projects should follow [Mypy's guidance around using it with an existing codebase][mypy-existing-codebase], and aim to get minimal checks enabled as soon as possible, with a plan to work towards enforcing the strict checks as development allows. This is not a small undertaking and may take some time to complete. Use your judgement to work out which areas may most benefit from type checking first, and prioritise those.
 
 ## Dependencies
 
@@ -248,3 +270,8 @@ file otherwise.
 [ruff-error-suppression]: https://docs.astral.sh/ruff/linter/#error-suppression
 [ruff-error-codes-list]: https://docs.astral.sh/ruff/rules/
 [funding-service-post-award]: https://github.com/communitiesuk/funding-service-design-post-award-data-store/blob/0b771fd1e3af82bc3e98d9b34b635c8738c332ca/pyproject.toml#L6-L23
+
+[pre-commit]: https://pre-commit.com/
+
+[mypy]: https://mypy.readthedocs.io/en/stable/index.html
+[mypy-existing-codebase]: https://mypy.readthedocs.io/en/stable/existing_code.html
