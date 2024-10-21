@@ -1,13 +1,11 @@
 ---
-title: Python style guide
-last_reviewed_on: 2000-01-01
+title: Python best practices guide
+last_reviewed_on: 2024-10-21
 review_in: 6 months
 owner_slack: '#mhclg-way'
 ---
 
 # <%= current_page.data.title %>
-
-**TODO: Review by MHCLG Python developers**
 
 This manual is designed to aid developers in writing Python code that is clear
 and consistent, within, and across, projects at MHCLG.
@@ -20,8 +18,7 @@ and consistent, within, and across, projects at MHCLG.
 
 ## Code formatting
 
-We use [Black][] to format our code. Black is an opinionated formatter that follows
-[PEP 8][]; where Black and PEP 8 do not express a view (for example, on the usage of
+We use [Ruff][ruff] to format our code. Ruff is an opinionated formatter that broadly follows [PEP 8][]; where Ruff and PEP 8 do not express a view (for example, on the usage of
 language features such as metaclasses) we defer to the [Google Python style guide][GPSG].
 Use these as references unless something is explicitly mentioned here. These rules
 should be followed in conjunction with the advice on consistency on the main
@@ -42,11 +39,9 @@ strings and this convention begins to show its age.
 
 ## Linting
 
-
 ### Ruff
 
-This manual advises the use of the [Ruff][] command line checker as an all in one lint,
-codestyle and complexity checker.
+This manual advises the use of the [Ruff][ruff] command line checker as an all in one lint, codestyle and complexity checker.
 
 #### How to use Ruff
 
@@ -67,27 +62,23 @@ Commonly it's used for ignoring unused imports in module level `__init__.py`
 files or imports not being at the top of a file in settings files or scripts.
 
 The feature is documented in the Ruff documentation, under [per-file-ignores][ruff-ignore-files].
-You can also see an example in the [Notifications API repo][Notify-API-pyproject].
+You can also see an example in the [Funding Service - Post Award repo][funding-service-post-award].
 
 
 #### Common Configuration
 
-Notify is already running the latest verions of [Black][] and [Ruff][] on all
-of its repos. You can find an example of their configuration in the root of any
-repo in the [`pyproject.toml` file][Notify-API-pyproject].
+The Funding Service is already running the latest verions of [Ruff][] on all of its repos. You can find an example of their configuration in the root of any repo in the [`pyproject.toml` file][funding-service-post-award].
 
 Commonly a `pyproject.toml` configuration file will live in the root of the package.
 It will contain separate sections for each tool the repository needs
 
 ```
-[tool.black]
-line-length = 120
-
 [tool.ruff]
 line-length = 120
 
 target-version = "py311"
 
+[tool.ruff.lint]
 select = [
     "E",  # pycodestyle
     "W",  # pycodestyle
@@ -99,7 +90,6 @@ select = [
 ]
 ignore = []
 exclude = [
-    "migrations/versions/"
 ]
 ```
 
@@ -112,7 +102,7 @@ comment - see [ruff's noqa syntax][ruff-error-suppression].
 
 #### Additional linting resources
 
-* [Notify Config][Notify-API-pyproject]: A production config to base off
+* [Funding Service - Post Award ruff configuration][funding-service-post-award]: A production config to base off
 * [Ruff error codes list][ruff-error-codes-list]
 
 ## Environments
@@ -202,7 +192,7 @@ For larger projects, MHCLG recommends using [pip-tools][pip-tools] for managing 
 Put your top-level requirements in a `requirements.in` file, and then use `pip-compile` to generate a
 `requirements.txt` file. Both the .in and .txt files should be commited to your repository.
 
-List dependencies only needed for development or testing into a separate `requirements-dev.txt` file.
+Your development dependencies should be recorded in `requirements-dev.in`, and that can be compiled into `requirements-dev.txt`. The first line of `requirements-dev.in` should be `-r requirements.txt`, so that the exact versions of your production dependencies are not changed when you install development dependencies.
 
 ### Libraries
 
@@ -250,7 +240,6 @@ file otherwise.
 [setup-deps]: https://docs.python.org/3.11/distutils/setupscript.html#relationships-between-distributions-and-packages
 [pip-tools]: https://pip-tools.readthedocs.io/en/stable/
 
-[Black]: https://black.readthedocs.io/en/stable/
 [PEP 8]: https://www.python.org/dev/peps/pep-0008/
 [PEP 440]: https://www.python.org/dev/peps/pep-0440/#direct-references
 
@@ -258,4 +247,4 @@ file otherwise.
 [ruff-ignore-files]: https://docs.astral.sh/ruff/settings/#lint_per-file-ignores
 [ruff-error-suppression]: https://docs.astral.sh/ruff/linter/#error-suppression
 [ruff-error-codes-list]: https://docs.astral.sh/ruff/rules/
-[Notify-api-pyproject]: https://github.com/alphagov/notifications-api/blob/0f4f6ce1e4f3fb22731ca426e8a17a2b154e3f8f/pyproject.toml
+[funding-service-post-award]: https://github.com/communitiesuk/funding-service-design-post-award-data-store/blob/0b771fd1e3af82bc3e98d9b34b635c8738c332ca/pyproject.toml#L6-L23
