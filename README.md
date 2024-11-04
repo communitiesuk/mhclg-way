@@ -4,7 +4,7 @@
 
 ### Making documentation changes (using the Github interface)
 
-At the bottom of each page of the [hosted MHCLG Way]() there is a `View source` link. This link will take you to to 
+At the bottom of each page of the [hosted MHCLG Way](https://friendly-parakeet-63jl6v6.pages.github.io/) there is a `View source` link. This link will take you to to 
 the corresponding [Github](https://github.com/communitiesuk/mhclg-way) page where you can use the pencil icon (:pencil:)
 in the interface to propose edits to a page.
 
