@@ -131,7 +131,7 @@ If your serverless application completes its journey in one or a small series of
 **SQS Queues, Step Functions and EventBridge**  
 Some serverless applications do not use HTTP Requests to start or trigger a serverless journey, but rather, rely on SQS Queues, Step Functions or an Amazon EventBridge event to invoke one or more Lambda Functions.
 
-If your serverless architecture uses one of these, you may have a harder time capturing the full journey within a testing framework - therefore, you might use a framework to simulate the traffic for your performance test and collect the results using another tool such as Splunk or CloudWatch.
+If your serverless architecture uses one of these, you may have a harder time capturing the full journey within a testing framework - therefore, you might use a framework to simulate the traffic for your performance test and collect the results using another tool such as CloudWatch.
 
 If you can, you should try and annotate your requests with a testing identifier to make it easier to collate your results.
 
