@@ -164,9 +164,8 @@ Implement origin access controls so that the origin cannot be impacted directly.
 If you are using CloudFront:
 
 1. Consider limiting the edge locations if you only expect traffic originating from the UK.
-2. Set up AWS Shield Advanced (it’s paid for and already available in Cabinet Office’s AWS environment), see [AWS Shield Response Team]
-3. Contact the [CDIO Cyber Security] team to send logs and get access to Splunk - see the [logging](/standards/logging.html) page for more details.
-4. Consider setting up AWS Origin Shield if you expect international traffic.
+2. Set up AWS Shield Advanced (it’s paid for and already available in MHCLG’s AWS environment), see [AWS Shield Response Team]
+3. Consider setting up AWS Origin Shield if you expect international traffic.
 
 ### Why?
 
@@ -189,9 +188,8 @@ Content Security Policy (CSP) is one security header that tells browsers where a
 Follow these steps to configure:
 
 1. Enable CSP in “Report-Only” mode by setting the Content-Security-Policy-Report-Only header and enable the reporting mechanism.
-2. See the [alphagov/browser-listener] GitHub repo for a central reporting tool.
-3. Review the browser developer console and Splunk logs and use those to tune the CSP configuration.
-4. Change the header to Content-Security-Policy so that browsers can prevent potentially malicious activity.
+2. Review the browser developer console and use those to tune the CSP configuration.
+3. Change the header to Content-Security-Policy so that browsers can prevent potentially malicious activity.
 
 ### Why?
 
