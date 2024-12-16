@@ -1,6 +1,6 @@
 ---
 title: How to manage third party software dependencies
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2024-12-16
 review_in: 6 months
 ---
 
@@ -33,7 +33,6 @@ There are tools which scan GitHub repositories and raise pull requests (PRs) whe
 
 All the above tools are free to use on public repositories.
 
-The CDIO Cyber Security team will review the repositories that do not have dependency management in use and will turn on Dependabot where required. Service teams are free to use a different tool such as [Snyk](https://snyk.io/), but will need to add a `no-dependabot` tag to their repository for monitoring purposes. You can [contact Cyber Security](https://gds.slack.com/archives/CCMPJKFDK) if you have any questions or need help.
 
 ## Monitor for vulnerabilities
 
@@ -75,7 +74,7 @@ Minimise the things you need to monitor by minimising dependencies where possibl
 
 Also consider managed solutions where possible. For example:
 
-* Use [GOV.UK PaaS buildpacks][] so you do not have to monitor for Operating System (OS), runtime or programming language vulnerabilities
+* Use [Paketo buildpacks][] so you do not have to monitor for Operating System (OS), runtime or programming language vulnerabilities
 * Consider managed container orchestration technology such as [AWS Fargate][] or similar so you do not have to monitor for vulnerabilities in your OS or control plane
 
 [Dependabot's auto-approve-and-merge facility]: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
@@ -96,6 +95,6 @@ Also consider managed solutions where possible. For example:
 [GitHub security alerts]: https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
 [official base images]: https://docs.docker.com/docker-hub/official_images/
 [Snyk container vulnerability management tooling]: https://snyk.io/product/container-vulnerability-management/
-[GOV.UK PaaS buildpacks]: https://docs.cloud.service.gov.uk/deploying_apps.html#buildpacks
+[Paketo buildpacks]: https://paketo.io/
 [AWS Fargate]: https://aws.amazon.com/fargate/
 [RFC-167]: https://github.com/alphagov/govuk-rfcs/blob/main/rfc-167-auto-patch-dependencies.md
