@@ -1,19 +1,19 @@
 ---
 title: Security overview for websites
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2024-12-16
 review_in: 6 months
 ---
 
 # <%= current_page.data.title %>
 
-These 15 steps are primarily for running independent websites that are not on the gov.uk domain; however, the principles here apply to all Cabinet Office websites and applications.
+These 15 steps are primarily for running independent websites that are not on the gov.uk domain; however, the principles here apply to all MHCLG websites and applications.
 
 ## 1. Access Control
 ### Must Do
 
 Use named accounts to log in for all systems (from registrars to content management systems).
 
-Use Single Sign-On (SSO) wherever possible to link accounts to Google using OAuth or OIDC.
+Use Single Sign-On (SSO) wherever possible to link accounts to [Entra ID] using OAuth or OIDC.
 If the service does not support SSO, make sure you use a gov.uk email and enable multi-factor authentication (MFA), ideally using a phishing-resistant mechanism like WebAuthn (hardware keys).
 
 If applicable, use more secure forms of MFA for higher risk accounts. For example, hardware tokens such as Yubikeys for privileged accounts, app-based authentication for standard accounts, and SMS MFA for low risk accounts.
@@ -32,7 +32,7 @@ See [how to manage access to your third-party service accounts](/standards/accou
 
 Using named accounts makes incident response and non-repudiability (making it harder for someone to deny they were responsible) easier; if an incident occurs, named accounts make it easier to work out the cause or vector and to then restrict access.
 
-Using SSO makes Joiners, Movers and Leavers (JML) processes simpler. As soon as someone leaves and their Google/IT account is removed, their access to services will be removed.
+Using SSO makes Joiners, Movers and Leavers (JML) processes simpler. As soon as someone leaves and their Microsoft/IT account is removed, their access to services will be removed.
 
 Using MFA prevents many common forms of attack that would otherwise give attackers access to accounts.
 
@@ -283,3 +283,4 @@ Remote analytics, such as Google Analytics, introduces a vulnerability to your s
 [CDIO Cyber Security]: https://gds.slack.com/messages/CCMPJKFDK/
 [vulnerability disclosure]: /standards/vulnerability-disclosure.html
 [Google for example]: https://workspaceupdates.googleblog.com/2022/04/context-aware-access-admin-console.html
+[Entra ID]: https://www.microsoft.com/en-gb/security/business/identity-access/microsoft-entra-id
