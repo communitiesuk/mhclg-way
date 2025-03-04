@@ -1,39 +1,94 @@
 ---
 title: Use GitHub
-last_reviewed_on: 2000-01-01
-review_in: 6 months
+last_reviewed_on: 2025-03-04
+review_in: 12 months
 ---
 
 # <%= current_page.data.title %>
 
-MHCLG uses the [communitiesuk] organisation on [GitHub] to collaborate on code. The GOV.UK One Login programme uses [govuk-one-login].
+MHCLG uses the [communitiesuk] organisation on [GitHub] to collaborate on code.
 
-### Getting access to `communitiesuk`
+## Getting access to `communitiesuk`
 
-You can use your personal GitHub account to access communitiesuk if you wish.
+You can use your personal GitHub account to access communitiesuk if you wish - [GitHub recommends using one personal
+account](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)
+for all work on GitHub.com.
 
-All github user accounts added to `communitiesuk` *must* be [connected](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) with a valid `communities.gov.uk` email address. Accounts not connected to a valid email address will be removed from `communitiesuk`.
+All GitHub user accounts added to `communitiesuk` *must* be [connected](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) with a valid `communities.gov.uk` email address.
+Accounts not connected to a valid email address will be removed from `communitiesuk`.
 
 You must also set up two-factor authentication on your account.
 
-To join `communitiesuk` ask your tech lead or technical architect to invite you. Make sure you've connected your MHCLG email address to your account first, otherwise your account will be removed.
+To join `communitiesuk` ask your tech lead or technical architect to invite you. Make sure you've connected your MHCLG
+email address to your account first, otherwise your account will be removed.
+
+## Managing repositories
+
+### Creating repositories
+
+All members of `communitiesuk` can create new repositories as required. The creator of a repository gets the `Admin` role
+for the repository and is responsible for setting permissions for other members to work with it. In general, the tech
+lead for a project should create all the required repositories and manage access for their development team.
+
+Repositories should be created as Public by default, as per the [Service Manual](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable).
+
+### Naming repositories
+
+Name all the repositories that belong to your project/service consistently.
+
+Pick a meaningful prefix to use for all
+related repositories - this makes it easy to find and list them, for example all the Energy Performance of Buildings
+repositories begin with “epb-” and can be [listed together using a simple query](https://github.com/orgs/communitiesuk/repositories?q=epb&type=all).
+
+Repository admins can easily rename existing repositories to match a convention, and GitHub will redirect all requests
+for the previous repository name automatically.
+
+### Managing access to repositories
+
+Ensuring that only the right people have access to repositories for a project/service is the project team’s
+responsibility.  Tech leads and/or service owners should carefully maintain permissions on their repositories as
+developers join and leave a project.
+
+Avoid adding individual users to repository access lists.  Instead, use [GitHub Teams][] to give a group of people access to
+all the repositories they need. This makes onboarding and offboarding team members for a project/service much easier and
+less error-prone, as you only need to [add to or remove from a Team][] rather than all relevant repositories individually.
+
+You can create a main “development” team with `Write` permissions on your repositories, and then specify a child
+“administrators” team that is a subset of the main development team assigned `Admin` permissions on the same repos.
+
+[GitHub Teams]: https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams
+[add to or remove from a Team]: https://github.com/orgs/communitiesuk/teams
 
 ### Configuring GitHub repositories
 
 Consider [protecting your main branch](https://docs.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) to prevent changes being committed without a suitable review.
 
-You can also consider backing up your Git repositories to another location (this should be a team responsibility). If you are using AWS to host your service
-[AWS CodeCommit](https://aws.amazon.com/codecommit/) is one option.
+You could also consider backing up your Git repositories to another location.
+
+### Transferring repositories in to `communitiesuk`
+
+Any member of `communitiesuk` can transfer repositories in to the organisation. To transfer a repository in (either a
+personal repo or a repo that belongs to another organisation) you need to have `Admin` permissions on the repository.
+
+If you want to retain `Admin` (or any level) permissions for the repo after it’s transferred then you need to ensure
+that you have explicit access to the repo before you transfer it - i.e. your GitHub username must be listed in the “Who
+has access” page for the repository settings.
+
+If you are not explicitly listed in the repository users but currently have `Admin` permissions on the repo because
+it is in your personal account (or in an organisation that you are overall admin of) then you will lose access when the
+repository is transferred.
 
 ### How to retire applications
 
 If an application is no longer used in production, you should [archive its repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/archiving-repositories).
 
-Update the application's README to explain why the repository has been archived, and link to a new location if the application has been superseded.
+Update the application’s README to explain why the repository has been archived, and link to a new location if the
+application has been superseded.
 
 ### Using Github Actions and workflows
 
-Repositories in `communitiesuk` can be configured to use [GitHub Actions](https://docs.github.com/en/actions) for CI/CD jobs, for example running unit tests or deploying a static site.
+Repositories in `communitiesuk` can be configured to use [GitHub Actions](https://docs.github.com/en/actions) for CI/CD
+jobs, for example running unit tests or deploying a static site.
 
 Actions and workflows can be powerful, so take care to follow best security practice.
 
@@ -48,12 +103,10 @@ If your repository has external contributors, [ensure they do not have permissio
 
 If your workflow interacts with another resource (for example AWS or DockerHub), consider setting up a dedicated account or role, with permissions limited to the scope of the action.
 Use temporary credentials in preference to storing long-lived credentials in a secret.
-In particular, when accessing AWS you must [authenticate using the OpenID Connect token](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) and not using an IAM User's access key and secret access key.
+In particular, when accessing AWS you must [authenticate using the OpenID Connect token](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) and not using an IAM User’s access key and secret access key.
 You should also specify the branch you expect to be deploying from (for example, `main`) in your IAM role to make sure code cannot be deployed from untrusted branches.
 
 Consider protecting the `.github/workflows` folder by using [a CODEOWNERS file](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) and requiring review from CODEOWNERS for merges into protected branches.
-
-Consider creating a Workflow Template in the [alphagov workflow folder](https://github.com/alphagov/.github/tree/main/workflow-templates) if you need to share a similar workflow between many repositories.
 
 [Create your own local actions](https://docs.github.com/en/actions/creating-actions/about-actions) wherever possible. If using GitHub-owned actions, [pin to a specific version](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions).
 Third-party actions should only be used if:
@@ -66,25 +119,30 @@ Third-party actions should only be used if:
 
 You can enforce this in the settings for Actions by choosing ['Allow select actions'](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-specific-actions-to-run) and then 'Allow actions created by GitHub' and 'Allow Marketplace actions by verified creators' as required.
 
-Note that for public repositories, the output of workflow runs is visible to everyone. Do not use workflows if this output could be considered sensitive.
+Note that for public repositories, the output of workflow runs is visible to everyone. Do not use workflows if this
+output could be considered sensitive.
 
-### Access GitHub support
+## Access GitHub support
 
-The communitiesuk organisation is covered under the Cabinet Office's [GitHub enterprise support agreement][]. Under this agreement GitHub will respond to support requests within eight hours, Monday to Friday.
+The `communitiesuk` organisation is covered under MHCLG’s [GitHub enterprise support agreement][]. Under this agreement
+GitHub will respond to support requests within eight hours, Monday to Friday.
 
-To access enterprise support you need either to be an enterprise admin or have been granted a support entitlement by an enterprise admin. There can only be a maximum of 20 people across the enterprise who have the support entitlement, so not everyone can have this.
+To access enterprise support you need either to be an enterprise admin or have been granted a support entitlement by an
+enterprise admin. There can only be a maximum of 20 people across the enterprise who have the support entitlement, so
+not everyone can have this.
 
 #### Request support
 
-If you are not already an enterprise admin or have a support entitlement on your GitHub user you will first need to ask one of the enterprise admins to be given permissons to access the support portal. You can do this by emailing the [MHCLG GitHub enterprise owners google group].
+If you are not already an enterprise admin or have a support entitlement on your GitHub user you will first need to ask
+one of the enterprise admins to be given permission to access the support portal.
 
-Once you've been given permission, you can view and raise support requests using GitHub's [support portal].
+Once you've been given permission, you can view and raise support requests using GitHub’s [support portal].
 
-You should use your `@communities.gov.uk` email during the sign up process to ensure your ticket is prioritised. You should also state that you are part of communitiesuk organisation in your request.
+You should use your `@communities.gov.uk` email during the sign up process to ensure your ticket is prioritised.
+You should also state that you are part of `communitiesuk` organisation in your request.
 
 [GitHub enterprise support agreement]: https://help.github.com/en/github/working-with-github-support/github-enterprise-cloud-support
 [support portal]: https://support.github.com/
-[MHCLG GitHub enterprise owners google group]: mailto:gds-github-enterprise-owners@digital.cabinet-office.gov.uk
 
 ## See also
 
@@ -93,4 +151,3 @@ You should use your `@communities.gov.uk` email during the sign up process to en
 
 [GitHub]: https://technology.blog.gov.uk/2016/05/31/how-we-use-git-at-the-government-digital-service/
 [communitiesuk]: https://github.com/communitiesuk/
-[govuk-one-login]: https://github.com/govuk-one-login
