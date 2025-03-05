@@ -10,12 +10,40 @@ owner_slack: '#mhclg-way'
 This manual is designed to aid developers in writing Python code that is clear
 and consistent, within, and across, projects at MHCLG.
 
+* [uv](#uv)
+* [Environments](#environments)
 * [Code formatting](#code-formatting)
 * [Maximum line length of 120 characters](#maximum-line-length-of-120-characters)
 * [Linting](#linting)
 * [Type hints](#type-hints)
-* [Environments](#environments)
 * [Dependencies](#dependencies)
+
+## `uv`
+
+This manual advises the use of [`uv`][uv] to manage Python projects. Read the linked documentation
+for more information. Using `uv` consistently will make it easier for developers in MHCLG to move
+between different teams by providing a similar way of managing the project and its dependencies.
+
+Once installed, the `uv` command lets you manage your installed python versions, your virtual
+environments, and your project's dependencies.
+
+`uv python install <version>` to explicitly install a version of python. However, one of `uv`'s
+stated benefits is that it will generally do everything for you. You should not need to install
+python manually, or manage your virtual environments manually.
+
+Any existing Python projects in MHCLG that do not use `uv` should aim to move over when it is 
+convenient.
+
+## Environments
+
+`uv` will manage your Python virtual environment, which ensures that each project's dependencies
+are isolated from other projects on your system. Using any `uv` command while within the python project
+will automatically install the correct python version and sync your dependencies before doing the command
+you used.
+
+[direnv](https://direnv.net/) is used to manage environment variables.
+This ensures project specific variables do not clutter your main environment or the environment of other projects.
+direnv uses `.envrc` for general project specific variables and you can use a non version controlled `.secrets` to store sensitive information.
 
 ## Code formatting
 
@@ -106,18 +134,6 @@ comment - see [ruff's noqa syntax][ruff-error-suppression].
 * [Funding Service - Post Award ruff configuration][funding-service-post-award]: A production config to base off
 * [Ruff error codes list][ruff-error-codes-list]
 
-## Environments
-
-This manual advises the use of [Pyenv](https://github.com/pyenv/pyenv) to manage different versions of Python you have installed.
-For more information see [Intro to pyenv](https://realpython.com/intro-to-pyenv)
-
-Use the pyev plugin [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) to manage virtual python environment.
-For more information see [Python virtual environment primer](https://realpython.com/python-virtual-environments-a-primer/)
-
-[direnv](https://direnv.net/) is used to manage environment variables.
-This ensures project specific variables do not clutter your main environment or the environment of other projects.
-direnv uses `.envrc` for general project specific variables and you can use a non version controlled `.secrets` to store sensitive information.
-
 ## Type hints
 
 Python is a dynamically-typed language, which can allow for fast and easy development in the early days. However, the flexibility can quickly become hard to understand when a project has developed for a number of years across a number of developers. Therefore, all new projects other than prototypes or very short-lived things, should make use of type hints from the beginning. We recommend using [MyPy][mypy] with `strict` checks enabled as soon as possible. The longer you wait to turn on strict type hints, the more painful it may become if insufficient thought has been paid to appropriate type choices.
@@ -137,14 +153,19 @@ strict = true
 
 ### With an existing codebase
 
-Existing projects should follow [Mypy's guidance around using it with an existing codebase][mypy-existing-codebase], and aim to get minimal checks enabled as soon as possible, with a plan to work towards enforcing the strict checks as development allows. This is not a small undertaking and may take some time to complete. Use your judgement to work out which areas may most benefit from type checking first, and prioritise those.
+Existing projects should follow [Mypy's guidance around using it with an existing codebase][mypy-existing-codebase],
+and aim to get minimal checks enabled as soon as possible, with a plan to work towards enforcing the strict checks
+as development allows. This is not a small undertaking and may take some time to complete. Use your judgement to
+work out which areas may most benefit from type checking first, and prioritise those.
 
 ## Dependencies
+
+You should use [`uv`][uv] to manage your python project and its dependencies.
 
 A Python application project typically brings together Python packages from PyPI, with
 others written in-house (or otherwise not distributed through PyPI).
 
-These packages are the applications immediate dependencies. Additionally, any
+These packages are the application's immediate dependencies. Additionally, any
 package can have its own immediate dependencies, where they draw on other
 packages. From an application's point of view, the dependencies of the packages
 it requires are its sub-dependencies.
@@ -205,16 +226,12 @@ Your README should document an easy-to-follow process by which all your Python
 dependencies can be upgraded to get bug fixes and security fixes, without introducing
 breaking changes to your build.
 
-Your pinned dependencies should be fully specified in a file called `requirements.txt`, and checked
-into your version control system (VCS). For projects with only a small number of dependencies, maintaining
-this manually (for example, installing with `pip install`, then using `pip freeze`) may be adequate.
-
-For larger projects, MHCLG recommends using [pip-tools][pip-tools] for managing dependencies.
-
-Put your top-level requirements in a `requirements.in` file, and then use `pip-compile` to generate a
-`requirements.txt` file. Both the .in and .txt files should be commited to your repository.
-
-Your development dependencies should be recorded in `requirements-dev.in`, and that can be compiled into `requirements-dev.txt`. The first line of `requirements-dev.in` should be `-r requirements.txt`, so that the exact versions of your production dependencies are not changed when you install development dependencies.
+Your direct dependencies should be specified in `pyproject.toml` under the `project.dependencies` key.
+You can manage these with `uv [add|remove] <package>`. Your development dependencies should also be
+in `pyproject.toml` under the `project.optional-dependencies` key; you can manage these with
+`uv [add|remove] --dev <package>`. `uv` will create a lockfile called `uv.lock` that specifies
+the exact versions of all direct and transitive dependencies that your project requires. This should
+be git committed.
 
 ### Libraries
 
@@ -224,15 +241,14 @@ or application. It may be applicable to repositories that provide scripts to be 
 developers or other end-users, but is not recommended for code that's intended to be deployed
 on its own into the cloud.
 
-Use a [`setup.py`][setup-deps]
-to specify the dependencies of your library, and the version ranges with which it
-can be reasonably expected to work.
+Use `uv` to add/update/remove the dependencies of your library, and declare the version ranges
+with which it can be reasonably expected to work.
 
 - The range you choose will depend on the guarantees each dependency makes about
   backward-compatibility. For example, if you're currently using version 1.3.1 of
   a semantically-versioned library, it would be reasonable to specify a range such
-  as `<2.0,>=1.3.1`. However, for a library that does not make that guarantee,
-  you might specify a more restricted range, such as `<1.4,>=1.3.1`.
+  as `>=1.3.1,<2.0`. However, for a library that does not make that guarantee,
+  you might specify a more restricted range, such as `>=1.3.1,<1.4`.
 
 - Update this file whenever you are ready to test and validate a new version that falls
   outside the existing range.
@@ -265,6 +281,7 @@ file otherwise.
 [PEP 8]: https://www.python.org/dev/peps/pep-0008/
 [PEP 440]: https://www.python.org/dev/peps/pep-0440/#direct-references
 
+[uv]: https://docs.astral.sh/uv
 [ruff]: https://docs.astral.sh/ruff
 [ruff-ignore-files]: https://docs.astral.sh/ruff/settings/#lint_per-file-ignores
 [ruff-error-suppression]: https://docs.astral.sh/ruff/linter/#error-suppression
