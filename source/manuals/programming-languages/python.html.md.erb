@@ -24,12 +24,12 @@ This manual advises the use of [`uv`][uv] to manage Python projects. Read the li
 for more information. Using `uv` consistently will make it easier for developers in MHCLG to move
 between different teams by providing a similar way of managing the project and its dependencies.
 
-Once installed, the `uv` command lets you manage your installed python versions, your virtual
+Once installed, the `uv` command lets you manage your installed Python versions, your virtual
 environments, and your project's dependencies.
 
-`uv python install <version>` to explicitly install a version of python. However, one of `uv`'s
+`uv python install <version>` to explicitly install a version of Python. However, one of `uv`'s
 stated benefits is that it will generally do everything for you. You should not need to install
-python manually, or manage your virtual environments manually.
+Python manually, or manage your virtual environments manually.
 
 Any existing Python projects in MHCLG that do not use `uv` should aim to move over when it is 
 convenient.
@@ -37,8 +37,8 @@ convenient.
 ## Environments
 
 `uv` will manage your Python virtual environment, which ensures that each project's dependencies
-are isolated from other projects on your system. Using any `uv` command while within the python project
-will automatically install the correct python version and sync your dependencies before doing the command
+are isolated from other projects on your system. Using any `uv` command while within the Python project
+will automatically install the correct Python version and sync your dependencies before doing the command
 you used.
 
 [direnv](https://direnv.net/) is used to manage environment variables.
@@ -124,7 +124,7 @@ exclude = [
 
 In the above file we exclude directories we want the checker to ignore completely,
 include optional linting such as applying isort rules to ensure imports are sorted
-for minimal git diffs, set the maximum line length and set the target python version.
+for minimal git diffs, set the maximum line length and set the target Python version.
 
 Note: you can also ignore rules on particular lines of code or files by adding a `# noqa`
 comment - see [ruff's noqa syntax][ruff-error-suppression].
@@ -160,7 +160,7 @@ work out which areas may most benefit from type checking first, and prioritise t
 
 ## Dependencies
 
-You should use [`uv`][uv] to manage your python project and its dependencies.
+You should use [`uv`][uv] to manage your Python project and its dependencies.
 
 A Python application project typically brings together Python packages from PyPI, with
 others written in-house (or otherwise not distributed through PyPI).
