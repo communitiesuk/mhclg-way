@@ -1,33 +1,32 @@
 ---
 title: Working with Git
-last_reviewed_on: 2000-01-01
-review_in: 9 months
+last_reviewed_on: 2025-03-04
+review_in: 12 months
 ---
 
 # <%= current_page.data.title %>
 
 ## Default branch name
 
-Your repository's default branch should be called `main`.
+Your repository’s default branch should be called `main`.
 
 To configure git to use `main` for new repositories, first make sure you are using git 2.28 or later, then run:
 
     git config --global init.defaultBranch main
 
 To migrate existing repositories from `master` to `main`, you can use
-[GitHub's branch renaming
+[GitHub’s branch renaming
 tool](https://github.com/github/renaming#renaming-existing-branches).
 
 Before you rename your default branch, you should consider the impact this will have on:
 
  - internal users
  - external users
- - your continuous integration (CI) system (for example, Concourse pipelines or GitHub actions)
+ - your continuous integration (CI) system (for example, AWS CodePipelines or GitHub actions)
 
 You can configure some CI systems to check out the default branch rather than hardcoding a branch name:
 
  - [GitHub Actions](https://github.blog/changelog/2020-07-22-github-actions-better-support-for-alternative-default-branch-names/) supports a `$default-branch` macro
- - [concourse-git-resource](https://github.com/concourse/git-resource): if you do not set `branch`, it will check out the default branch
 
 ## Commits
 
@@ -44,7 +43,7 @@ As Anna Shipman describes it,
 
 #### Example
 
-From Anna's blogpost, we see an example of how a [single commit with 51 files changed](https://github.com/alphagov/paas-alpha-tsuru-ansible/commit/7547ac0d35a)
+From Anna’s blogpost, we see an example of how a [single commit with 51 files changed](https://github.com/alphagov/paas-alpha-tsuru-ansible/commit/7547ac0d35a)
 was broken down into a [series of 8 commits implementing those changes](https://github.com/alphagov/paas-alpha-tsuru-ansible/compare/d891857...d14bb2f44) instead.
 
 ### Commit messages
@@ -95,7 +94,7 @@ A link to a ticket in an issue tracker should not be seen as an alternative to
 writing a commit message.
 
 While a link can add some extra context for people reviewing
-a pull-request, the commit message should stand on its own. There's no guarantee that
+a pull-request, the commit message should stand on its own. There’s no guarantee that
 the link will continue to work in the future when someone is looking through the commit
 history to understand why a change was made.
 
@@ -152,7 +151,7 @@ You should develop on a short-lived "feature" [branch](https://git-scm.com/book/
 
 For example if your repository has many binary files, the `git diff` will not provide useful change information, and you may choose to collaborate directly on the trunk branch.
 
-You should prefer organising your commits as small, self-contained changes rather than having a single commit per pull-request. Ideally, each commit should represent a coherent set of changes and pass all of your project's tests and static analysis.
+You should prefer organising your commits as small, self-contained changes rather than having a single commit per pull-request. Ideally, each commit should represent a coherent set of changes and pass all of your project’s tests and static analysis.
 This will make your changes easier for other people to understand them at review time.
 
 You may need to update your feature branch with the latest changes from the trunk branch when you have multiple people contributing to the same repository.
@@ -164,7 +163,7 @@ Git allows you to [rewrite local changes](https://git-scm.com/book/en/Git-Tools-
 You should not rewrite commits that have been merged or pushed to the trunk branch unless there is a compelling reason such as committing personally identifiable information or application secrets.
 In this case you should communicate this to affected staff within MHCLG, so they know to update their local working copy.
 
-You should use `git merge` with `--no-ff` if you are manually merging a feature branch into your repository's trunk branch rather than GitHub's own merge capability.
+You should use `git merge` with `--no-ff` if you are manually merging a feature branch into your repository’s trunk branch rather than GitHub’s own merge capability.
 This option preserves evidence of your feature branch in the repository history by creating a merge commit even if your changes could be simply applied to the trunk branch.
 
 You should use the merge strategy that best suits the context of your team and project.
@@ -177,7 +176,7 @@ Force pushing in git is a subject that attracts all kinds of religious
 battles. This advice is not about the merits of force pushing. This is about how
 to use `git push -f` if and when you do use it.
 
-Let's say you're working on a branch, 'foobar', and you decide to force push
+Let’s say you're working on a branch, 'foobar', and you decide to force push
 to the remote. So you do this:
 
 ```
