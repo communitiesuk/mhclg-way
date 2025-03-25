@@ -1,0 +1,38 @@
+---
+title: Tagging cloud resources
+last_reviewed_on: 2025-03-25
+review_in: 12 months
+---
+
+# <%= current_page.data.title %>
+
+We use [AWS and Azure for hosting](../standards/hosting.html).
+Most cloud resources support tagging and MHCLG has existing policies to define tags for both [Azure](https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/Azure%20tagging.aspx) and [AWS](https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/AWS-TAgging-Policy.aspx)
+
+This page contains a list of expected resource level tags. For further information please refer to the Sharepoint pages above.
+
+## Why tag?
+
+The main reasons for tagging are:
+
+ - To be able to understand costs (by assisting queries in Cost Explorer). These tags are are pre-approved as cost allocation tags in AWS.
+ - To understand the provenance of resources (by tagging with metadata)
+ - To assist in understanding data and resource compliance and security risk
+
+## AWS Resource Level Tags
+The following tags are mandatory for all AWS resources:
+ - Name: The name of the resource
+ - Project: The name of the project that owns the resource
+ - System: The software system this resource supports
+
+ For example:
+ ```
+ tags = {
+    Name    = "${terraform.workspace}-funding-service-vpc"
+    Project = "Funding Service"
+    System  = "Funding Service"
+  }
+ ```
+
+
+
