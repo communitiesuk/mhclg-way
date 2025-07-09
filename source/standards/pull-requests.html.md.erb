@@ -7,15 +7,17 @@ review_in: 12 months
 
 Pull requests (PRs) let you tell others about changes you've pushed to a branch in a repository on GitHub.
 
-## Why should you use pull requests?
+## Why might you use pull requests?
 
-We use [PRs][prs] at MHCLG to:
+We might use [PRs][prs] at MHCLG to:
 
 - enable [code review](/manuals/code-review-guidelines.html) from colleagues
 - provide a lightweight change management process
 - share responsibility for the code going live
 - spread knowledge and make others aware of changes
 - notify people outside the immediate group of reviewers
+
+Depending on the work flow of your project you might choose not to use pull requests. There are teams in the department that use [trunk-based development][trunk-based-development] instead of pull requests.
 
 ## Cautionary notes
 
@@ -94,40 +96,7 @@ A request for refactoring, while encouraged, should not block a merge.
 
 ### Reviewing PRs from members of the public
 
-We sometimes receive pull requests from members of the public, and we should treat them with the same compassion we would a colleague.
-
-It is important that we also follow specific guidelines when dealing with people we do not know, some of whom will be doing this work in their own time.
-
-#### Tone
-
-Be positive; thank them for contributing in your first comment, even if you are going to reject their contribution.
-
-Call out and celebrate good code, content, and design choices. A list of things to change can be dispiriting and discourage them from further contributions.
-
-Make requests for improvement rather than telling them what to do. For example, "We think it might be better the other way round, what do you think?" rather than "Swap the order of the logic".
-
-Be explicit and take care with what you write. People do not always understand your intentions online and cannot get in touch using Slack as a colleague might.
-
-#### Handling the PR
-
-You should communicate in your first comment whether we are able to merge the change.
-
-If we do not want to merge it because it does not fit with our plans, thank them and close the PR.
-
-If it fits, but we cannot merge it due to quality or style issues, then tell them that we are able to merge the PR if they make some changes.
-
-We can tell the requester what improvements we'd like to see, but we should not require the contributor to make them all. For example, we might add missing tests ourselves or collaborate with them to add tests.
-
-We should close PRs due to lack of activity but invite people to reopen them if they pick things up again.
-
-#### Practical advice
-
-Try to comment on changed files rather than by commit, as the notifications are easier to follow.
-
-If the codebase has a changelog and the contributor has not added a line describing their change, raise a PR for this yourself after they have merged their PR.
-Regardless of who has written the changelog entry, add a "Thank you `@githubusername`".
-
-You should add a documentation credit thanking the contributor if you do not add documentation changes to the changelog.
+Pull requests from members of the public should be addressed according to the guidance set out in [The GDS Way][the-gds-way].
 
 ## Further reading
 
@@ -142,3 +111,5 @@ You should add a documentation credit thanking the contributor if you do not add
 [style-enf]: https://technology.blog.gov.uk/2016/09/30/easing-the-process-of-pull-request-reviews/
 [paul]: https://mastodon.me.uk/@boffbowsh
 [prs]: https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
+[the-gds-way]: https://gds-way.digital.cabinet-office.gov.uk/standards/pull-requests.html#reviewing-prs-from-members-of-the-public
+[trunk-based-development]: https://trunkbaseddevelopment.com/
