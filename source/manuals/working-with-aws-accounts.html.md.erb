@@ -1,88 +1,35 @@
 ---
 title: Working with AWS accounts
-last_reviewed_on: 2025-03-26
+last_reviewed_on: 2025-07-25
 review_in: 12 months
 ---
 
 # <%= current_page.data.title %>
 
-Many teams in MHCLG use [Amazon Web Services (AWS)](https://aws.amazon.com/) as their infrastructure provider. 
+Many teams in MHCLG use [Amazon Web Services (AWS)][] as their infrastructure provider. 
+
 ## Request AWS user access
 
-People joining MHCLG do not automatically have access to [Amazon Web Services
-(AWS)][]. To grant a user access to AWS you’ll need to follow the guidance (How to Request an AWS User Account)[https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/AWS-IAM-Account-Request.aspx]
+People joining MHCLG do not automatically have access to AWS. To grant a user access to AWS you’ll need to follow the guidance [How to Request an AWS User Account](https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/AWS-IAM-Account-Request.aspx).
 
 ###  Use the command line
 
 There are several command line tools you can use to work with AWS, such as:
 
-* [AWS Command Line Interface (AWS CLI)][] - to manage your AWS services
-* [AWS Shell][] - an integrated shell for working with the AWS CLI
-* [Terraform][] - for building, changing, and versioning infrastructure
+* [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/) - to manage your AWS services
+* [AWS Shell](https://github.com/awslabs/aws-shell) - an integrated shell for working with the AWS CLI
+* [Terraform](https://www.terraform.io/) - for building, changing, and versioning infrastructure
 
-These tools need credentials to access AWS. We recommend using [aws-vault][] to manage your credentials.
+These tools need credentials to access AWS. We recommend using [aws-vault](https://github.com/99designs/aws-vault#readme) to manage your credentials.
 
 #### Installing aws-vault
 
-[aws-vault][] needs to be installed and available on your `PATH`. The
+[aws-vault](https://github.com/99designs/aws-vault#readme) needs to be installed and available on your `PATH`. The
 easiest way to do this is via Homebrew: `brew install --cask aws-vault`.
 
 #### Using aws-vault  
+Follow the guidance in [Programmatic Access and Federated Access](https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/Programmatic-Access-and-Federated-Access.aspx).
 
-##### Create an AWS access key
-
-1. Log into the AWS Console with your IAM user account
-2. Click on your username in the top-right 
-3. Click [**Security Credentials**](https://console.aws.amazon.com/iamv2/home#/security_credentials?section=IAM_credentials) from the drop-down menu
-4. Click **Create access key**. You can only have 2 access keys, so delete one if you need to.
-5. Save the **Access key ID** and **Secret access key** (download the CSV), as you will only be shown it once.
-6. Note the ARN of your MFA device (this will be something like `arn:aws:iam::123456789012:mfa/firstname.lastname`).
-
-##### Create an AWS Vault profile
-
-In the terminal run the `aws-vault add` command for example
-
-```
-aws-vault add firstname.lastname
-```
-
-where the last parameter is the name of the profile. You will be prompted to:
-
-* enter **Access key ID** and **Secret access key** you created earlier
-* set your AWS Vault password
-
-You can test if the profile was added by running `aws-vault list`
-
-
-##### Add new profiles to your .aws/config
-* Open the `~/.aws/config` file in your preferred editor
-* Add MFA serial for the new profile
-
-```
-[profile joe.bloggs]
-mfa_serial = arn:aws:iam::123456789012:mfa/joe.bloggs
-```
-
-* Below this you can add additional profiles, which will let you switch role into the various accounts you have access to e.g.:
-
-```
-[profile developer]
-include_profile=joe.bloggs
-role_arn=arn:aws:iam::123456789012:role/developer
-
-[profile staging]
-include_profile=joe.bloggs
-role_arn=arn:aws:iam::234567890123:role/developer
-
-[profile production]
-include_profile=joe.bloggs
-role_arn=arn:aws:iam::345678901234:role/developer
-```
-
-* Save the file and check if the profiles have been added by running `aws-vault list`
-* For each profile you will also need to run `aws-vault add` (e.g. `aws-vault add developer`) and provide the **Access key ID** and **Secret access key**. This is because aws-vault stores encrypted credentials for each profile (e.g. on your keychain).
-
-##### Using the AWS Vault
 
 You can execute commands with credentials stored in AWS Vault using the `aws-vault exec` command.
 For example, to list S3 buckets in the developer account run:
@@ -92,59 +39,3 @@ aws-vault exec developer -- aws s3 ls
 ```
 
 [Amazon Web Services (AWS)]: https://aws.amazon.com/
-[process called assuming roles]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html
-[request an AWS account form]: https://mhclg.service-now.com/sp?id=sc_cat_item&sys_id=5bd90ba51be34250f4b2206fe54bcb3d
-[AWS Command Line Interface (AWS CLI)]: https://aws.amazon.com/cli/
-[AWS Shell]: https://github.com/awslabs/aws-shell
-[Terraform]: https://www.terraform.io/
-[AWS Console]: https://gds-users.signin.aws.amazon.com/console
-[creating, modifying, and viewing Access Keys (Console)]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey
-[Multi-Factor Authentication (MFA)]: https://aws.amazon.com/iam/details/mfa/
-[Terraform]: https://www.terraform.io/
-[AWS Security Token Service (STS)]: https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
-[AWS CLI]: https://aws.amazon.com/cli/
-[AWS CLI documentation]: https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html
-[Creating an AWS credentials file]: #creating-an-aws-credentials-file
-[aws-vault]: https://github.com/99designs/aws-vault#readme
-[maximum session duration]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session
-[team specific roles]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-console.html
-
-## Create AWS Accounts
-
-MHCLG teams can request accounts corresponding to different environments
-
-Using multiple AWS accounts allows MHCLG teams to:
-
-- enforce administrative isolation between workloads
-- minimize the impact of security breaches
-- isolate audit data in separate accounts
-
-More information on the account types available is on the [Cloud Platforms Sharepoint site].
-
-### Request an account
-
-To request an AWS account follow the guidance [How to Request an AWS Account](https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/How-to-Request-AWS-Service-Account.aspx).
-
-
-[Amazon Web Services (AWS)]: https://aws.amazon.com/
-[request an AWS account form]: https://request-an-aws-account.gds-reliability.engineering/
-[the MHCLG users base account]: https://gds-users.signin.aws.amazon.com/console
-[Terraform]: https://www.terraform.io/
-[accessing aws accounts]: access-aws-accounts.html
-
-### Cross account access
-
-AWS cross account access allows user accounts held in the `mhclg` base account to access resources in target AWS accounts created by your team.
-
-Access to resources within a target AWS account is controlled using [AWS Identity and Access Management (IAM)][] roles managed within that AWS account.
-
-IAM roles establish trust relationships between the target’s (trusting) AWS account and the MHCLG base (trusted) AWS account.
-
-
-## Remove access to AWS accounts
-
-When someone no longer requires access to AWS (for example, because they've left MHCLG or your team) remove them from the `mhclg` base account by following the guidance on the [Cloud Platforms Sharepoint site].
-
-
-[Cloud Platforms Sharepoint site]: https://mhclg.sharepoint.com/sites/CloudPlatforms
-[AWS Identity and Access Management (IAM)]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
