@@ -81,7 +81,7 @@ If your service meets your capacity requirements, document its upper limits and 
 
 Testing tools should record the number of concurrent users, requests per second (RPS), HTTP response codes and timings. These reports help determine your service’s maximum supported capacity. If your service cannot meet your requirements or you find problems, you’ll need to diagnose them.
 
-You can fix common problems like inefficient database queries by introducing lazy loading and adding or altering indexes. If your web server stops or is slow to respond, it may be running out of available workers. This is a common issue when you’l sending lots of requests to APIs and the workers become blocked awaiting a response. Adjusting web server configuration can help depending on your specific application and technology.
+You can fix common problems like inefficient database queries by introducing lazy loading and adding or altering indexes. If your web server stops or is slow to respond, it may be running out of available workers. This is a common issue when you’re sending lots of requests to APIs and the workers become blocked awaiting a response. Adjusting web server configuration can help depending on your specific application and technology.
 
 Problems with your infrastructure can be harder to resolve. For example, if your service is read-heavy you can introduce additional caching to improve performance.
 

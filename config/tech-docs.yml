@@ -1,5 +1,5 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: https://communitiesuk.github.io/mhclg-way/
+host: https://communitiesuk.github.io/mhclg-way
 # service_link: /
 
 # Header-related options
