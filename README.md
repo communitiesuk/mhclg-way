@@ -28,9 +28,8 @@ You then need to manually add your new page to one of the menu files in [source/
 
 ### Raising and merging PRs to this repo
 
-To submit changes to this repo, raise a PR in the usual way and these will be regularly reviewed by The MHCLG Way forum 
-group that meets once a month.  Reviewing and merging PRs at any time is fine, the forum will also review merged PRs as 
-part of its regular meeting.
+To submit changes to this repo, raise a PR in the usual way and flag it in the MHCLG Way slack channel (#mhclg-way) 
+for discussion. Reviewing and merging PRs at any time is fine.
 
 Any open non-draft PRs that have been more than 1 month without further comments, suggestions or alterations will be 
 merged by the forum group unless there is an explicit "DO NOT MERGE" somewhere in the title or description.
