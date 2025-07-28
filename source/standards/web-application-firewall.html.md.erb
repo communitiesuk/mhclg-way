@@ -30,26 +30,15 @@ You should:
 
 You should monitor the Open Web Application Security Project (OWASP) [top 10 most critical web application vulnerabilities](https://owasp.org/www-project-top-ten/) to keep up to date with the latest threats.
 
-Using a WAF should align with your other security monitoring features, like [Security Information Event Management (SIEM)](https://en.wikipedia.org/wiki/Security_information_and_event_management). When developing use cases you should also factor in the extra time and resources needed to configure WAF rules.
+Using a WAF should align with your other security monitoring features. When developing use cases you should also factor in the extra time and resources needed to configure WAF rules.
 
 ## Managing your WAF
 
 Identify any areas in your app not covered by your WAF and define measures to protect them, such as using:
 
-- [alerts](#alerts) - as part of your incident management strategy
+- [AWS Shield Advanced](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-advanced-summary.html) (it’s paid for and already available in MHCLG’s AWS environment)
 - [threat modelling](/standards/threat-modelling.html) - to assess potential weaknesses in your environment
 - [reviews](#reviews) - to manage your security controls
-
-### Alerts
-
-It’s not always possible to block a detected attack because some services need to process transactions for any user of that service. In these situations you should [raise events as alerts](/standards/alerting.html).
-
-When WAF alerts are raised, make sure you already have an incident policy in place, including:
-
-- who should manage an alert
-- what their responsibilities are
-- how to investigate an alert
-- how to tune out false positives
 
 ### Reviews
 
