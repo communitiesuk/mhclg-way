@@ -1,6 +1,6 @@
 ---
 title: Use configuration management
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2025-07-28
 review_in: 6 months
 ---
 
@@ -12,28 +12,19 @@ Use [configuration management][] to manage, automate and standardise your infras
 
 Use [Terraform][] to configure third party cloud infrastructure like Amazon Web Services (AWS).
 
-Terraform supports a [large number of providers][], and you can configure it to support multiple environments with different parameters. See the [govuk-aws][] repository as an example.
+Terraform supports a [large number of providers][], and you can configure it to support multiple environments with different parameters. See the [Funding Service terraform][] and [EPB AWS Infrastructure][] repository as an example.
 
 ### Versioning
 
-Due to the high rate of change in many cloud provider offerings we
-recommend you keep your Terraform versions and codebases up to date. A
-version manager such as [tfenv](https://github.com/tfutils/tfenv), 
-can help you with supporting
-multiple versions.
+Due to the high rate of change in many cloud provider offerings we recommend you keep your Terraform versions and codebases up to date. A version manager such as [tfenv](https://github.com/tfutils/tfenv), can help you with supporting multiple versions.
 
 ### Code analysis
 
-There are a number of Terraform focused static analysis tools in use at
-MHCLG. While none of them are yet ubiquitous they can help ensure your
-code is more idiomatic, consistent and secure and you should consider the
-benefits they could bring to your build pipelines.
+There are a number of Terraform focused static analysis tools in use at MHCLG. While none of them are yet ubiquitous they can help ensure your code is more idiomatic, consistent and secure and you should consider the benefits they could bring to your build pipelines.
 
  * [checkov](https://github.com/bridgecrewio/checkov) - "detects security and compliance misconfigurations"
-
  * [tfsec](https://github.com/aquasecurity/tfsec) - "spots potential security issues"
-
- * [tflint](https://github.com/terraform-linters/tflint) "linter focused on possible errors, best practices and so on."
+ * [tflint](https://github.com/terraform-linters/tflint) - "linter focused on possible errors, best practices and so on."
 
 ## Further reading
 
@@ -45,5 +36,6 @@ Find out more about configuration management in the [Service Manual][].
 [Amazon Machine Image (AMI)]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
 [Terraform]: https://www.terraform.io/
 [Service Manual]: https://www.gov.uk/service-manual/technology/manage-your-software-configuration#using-configuration-management-tools
-[govuk-aws]: https://github.com/alphagov/govuk-aws
+[Funding Service terraform]: https://github.com/communitiesuk/funding-service-terraform
+[EPB AWS Infrastructure]: https://github.com/communitiesuk/epb-aws-infrastructure
 [large number of providers]: https://www.terraform.io/docs/language/providers/index.html
