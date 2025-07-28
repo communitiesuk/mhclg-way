@@ -1,6 +1,6 @@
 ---
 title: Threat Modelling
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2025-07-28
 review_in: 6 months
 ---
 
@@ -51,14 +51,13 @@ service team will need to lead this part. Try to keep the scope small; it may be
 more effective to break a service down and perform multiple threat modelling
 activities.
 
-The group of people involved typically includes the development team, cyber
-security and information assurance colleagues; however, working with other
-people, such as user researchers and product managers, often provides more
+The group of people involved typically includes the development team and the cyber
+security team; however, working with other people, such as user researchers and product managers, often provides more
 varied perspectives.
 
 As part of the interactive exercise, we surface hypothetical threats or
-vulnerabilities in a service. We use [STRIDE][] to help us look at different
-aspects and make sure we get a rounded view of all threats.
+vulnerabilities in a service. You can use [STRIDE][] to help look at different
+aspects and make sure you get a rounded view of all threats.
 
 #### 1.1 Interactive Exercise
 
@@ -131,10 +130,6 @@ After completing the threat modelling activity sessions, you should set aside
 some time to review the threat modelling outputs regularly. This is to see
 whether you are improving the security and taking the mitigations forward; it’s
 also important to consider any new threats.
-
-A recommendation is to perform this review within your service team every two
-months; the time you need may vary depending on the scope of your threat
-modelling, but 90 minutes is usually sufficient.
 
 You should consider running the threat modelling sessions every year or when
 there are significant architectural changes planned.
@@ -244,7 +239,7 @@ expected to view or alter it.
 
 Looking at the GOV.UK Pay service as an example; Pay is likely to attract attention from organised criminal groups and lower-level hackers/script kiddies who have financial motivations. Organised criminal groups are capable of a level of attack sophistication that would mean zero-day exploits, and more advanced techniques like replay attacks, and would be willing to use supply chain attacks as a route for access. State actors are likely to be less interested in Pay, except for disruptive actions to render the service unavailable.
 
-Applying this threat model, Pay requires a good level of cyber security (in addition to it's PCI-DSS requirements) and regular scanning/penetration testing is necessary to ensure that both basic cyber hygience and more advanced attacks are accounted for.
+Applying this threat model, Pay requires a good level of cyber security (in addition to it's PCI-DSS requirements) and regular scanning/penetration testing is necessary to ensure that both basic cyber hygiene and more advanced attacks are accounted for.
 
 This would contrast with a service like GOV.UK, where the threat is likely to be state sponsored or affiliated threats and lower-level hackers/script kiddies using common toolsets/bots with political/reputational motivations.
 
