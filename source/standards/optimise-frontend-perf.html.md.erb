@@ -1,8 +1,8 @@
 ---
 title: How to optimise frontend performance
 owner_slack: '#mhclg-way'
-last_reviewed_on: 2000-01-01
-review_in: 6 months
+last_reviewed_on: 2025-07-28
+review_in: 12 months
 ---
 
 # <%= current_page.data.title %>
@@ -34,15 +34,6 @@ For example:
 
 ## Automate optimisation
 
-You can automate performance optimisation using tools such as:
-
-- [Webpack][]
-- [Parcel][]
-- [Rollup][]
-- [Gulp][]
-
-You should integrate these tools into your [Continuous Delivery (CD) and Continuous Integration (CI) workflow][] so they automatically run before deployment.
-
 Consider automating common tasks like:
 
 - CSS and JavaScript linting and optimisation
@@ -50,6 +41,8 @@ Consider automating common tasks like:
 - image optimisation
 - sprite and icon generation
 - SVG optimisation
+
+You can include these tasks within your build tools (such as [Webpack][], [Parcel][], or [Rollup][]/ [Rolldown][]) so that they run within your CI/CD pipeline.
 
 ## Automate testing
 
@@ -61,21 +54,9 @@ You can automate frontend performance testing using third-party services such as
 - [Sitespeed.io][]
 - [Calibre][]
 
-## Using Speedcurve to automate frontend performance testing
-
-You can use [Speedcurve][] to test the performance of your service.
-
-Speedcurve provides an extensive set of tools to test your service such as the following:
-
-- Test from different locations and different browsers.
-- Schedule regular tests using tools like Google Lighthouse and Webpage Test.
-- [Real user monitoring][], which allows you to collect data that shows you how your real users experience the speed of your site.
-
-Contact a Lead Frontend Developer to request an account.
-
 ## Performance budget
 
-You should [set a performance budget][] for your website’s pages. Once you’ve set a performance budget, test to check your website’s pages stay within your budget. There are many tools available to do this, such as:
+You can [set a performance budget][] for your website’s pages. Once you’ve set a performance budget, test to check your website’s pages stay within your budget. There are many tools available to do this, such as:
 
 - [Webpack Performance][]
 - [performance-budget][]
@@ -126,7 +107,7 @@ The Service Manual has more suggestions about [how you can test frontend perform
 [Webpack]: https://webpack.js.org/
 [Parcel]: https://parceljs.org/
 [Rollup]: https://rollupjs.org/guide/en/
-[Gulp]: https://gulpjs.com/
+[Rolldown]: https://rolldown.rs/guide/
 [Speedcurve]: https://www.speedcurve.com/
 [Real user monitoring]: https://insidegovuk.blog.gov.uk/2021/06/16/how-real-user-monitoring-will-improve-gov-uk-for-everyone/
 [Continuous Delivery (CD) and Continuous Integration (CI) workflow]: https://www.gov.uk/service-manual/technology/deploying-software-regularly
