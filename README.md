@@ -169,7 +169,7 @@ This script is automatically run as part of CI, but skipped on the main branch
 
 ## Deploy
 
-This repo is continuously deployed from the `main` branch by GitHub Actions, using the workflow defined in [`/.github/workflows/bundle_and_release.yml`](/.github/workflows/bundle_and_release.yml).
+This repo is continuously deployed from the `main` branch by GitHub Actions, using the workflow defined in [`/.github/workflows/deploy-to-pages.yaml`](https://github.com/communitiesuk/mhclg-way/blob/main/.github/workflows/deploy-to-pages.yaml).
 
 ## Licence
 
