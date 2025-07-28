@@ -21,4 +21,4 @@ Staticfile.auth
 
 .idea
 
-vendor
+/vendor
