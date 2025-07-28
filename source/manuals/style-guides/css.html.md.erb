@@ -1,6 +1,6 @@
 ---
 title: CSS coding style
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2025-07-28
 review_in: 12 months
 owner_slack: '#mhclg-way'
 ---
@@ -9,17 +9,10 @@ owner_slack: '#mhclg-way'
 
 ## Contents
 
-* [Linting](#linting)
 * [Whitespace](#whitespace)
 * [Spacing](#spacing)
 * [Vendor prefixing](#vendor-prefixing)
 * [Sass nesting](#sass-nesting)
-
-## Linting
-
-**TODO: Decide if we want to use this CSS linting format for MHCLG and fork if necessary**
-
-Your project should conform to MHCLG CSS/Sass linting rules, these are published as a [stylelint](https://stylelint.io) configuration: [stylint-config-gds](https://github.com/alphagov/stylelint-config-gds).
 
 ## Whitespace
 
@@ -35,19 +28,13 @@ If your project is not using the GOV.UK Design System, you should use pixel valu
 
 ## Use `rem` units strategically
 
-As a general rule, per [Josh W. Comeau's _The Surprising Truth About Pixels and Accessibility_] (https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/#strategic-unit-deployment-6):
+As a general rule, per [Josh W. Comeau’s _The Surprising Truth About Pixels and Accessibility_] (https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/#strategic-unit-deployment-6):
 
-> When picking between pixels and rems, here's the question you should be asking yourself: Should this value scale up as the user increases their browser's default font size?
+> When picking between pixels and rems, here’s the question you should be asking yourself: Should this value scale up as the user increases their browser’s default font size?
 
 Use `rem` units for `font-size` wherever possible.
 
 You should generally avoid using `rem` for padding or border-width if these are likely to cause layout or readability issues when the font-size increases.
-
-## Vendor prefixing
-
-When using CSS features which require vendor prefixes use [autoprefixer](https://github.com/postcss/autoprefixer).
-
-You should [configure autoprefixer](https://github.com/postcss/autoprefixer#browsers) to target [our supported browsers](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices#browsers-to-test-in).
 
 ## Sass nesting
 
