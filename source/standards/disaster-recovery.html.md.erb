@@ -1,6 +1,6 @@
 ---
 title: Disaster Recovery
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2025-07-28
 review_in: 6 months
 ---
 
@@ -69,11 +69,7 @@ The National Cyber Security Centre (NCSC) article [Offline backups in an online 
 
 ### Decide on manual or automatic recovery in the event of a disaster
 
-Setting a [Recovery Time Objective (RTO)](https://cloud.google.com/architecture/dr-scenarios-planning-guide#basics_of_dr_planning) for your service can help you decide your approach to service recovery in the event of a disaster. For example, [Digital Marketplace](https://www.digitalmarketplace.service.gov.uk/) is built to automatically recover in various scenarios, including an outage in an availability zone. It is not built to withstand a serious outage of [GOV.UK Platform as a Service (PaaS)](https://www.cloud.service.gov.uk/) or the [Amazon Web Services (AWS) region](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) the PaaS depends upon. However, Digital Marketplace can restore its service with another provider and/or in another region manually by redeploying its applications using [infrastructure as code](https://www.gov.uk/service-manual/technology/manage-your-software-configuration#use-infrastructure-as-code) and databases from backups. Therefore, in the event of this hopefully low-risk scenario, it has set its RTO as one week.
-
-In this example, the services Digital Marketplace depends upon can probably restore service in less than one week. Therefore, the RTO is applicable in the worst-case scenario.
-
-An RTO of one week is not likely to be acceptable for services where there would be a serious user impact if they were unavailable. For very low RTOs (for example, under one hour), you will need to architect your service to support automatic disaster recovery. For example, [GovWifi](https://www.wifi.service.gov.uk/) operates in two AWS regions - Dublin and London. In the event of a serious outage in London, essential aspects of the GovWifi service will still operate from the Dublin region.
+Setting a [Recovery Time Objective (RTO)](https://cloud.google.com/architecture/dr-scenarios-planning-guide#basics_of_dr_planning) for your service can help you decide your approach to service recovery in the event of a disaster.
 
 Your disaster recovery strategy will depend on your specific service requirements. You may need different strategies for different parts of your service. The more immediate and more automatic the strategy, the greater the complexity and the cost of running your service is likely to be. The [Plan for Disaster Recovery article from AWS](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html) covers some common recovery patterns.
 
@@ -90,5 +86,3 @@ You must regularly test that you can restore data from your live and offline bac
 You must regularly test your manual or automatic recovery processes so that you are confident they will work in an emergency situation. This also helps team members build familiarity with the relevant procedures.
 
 You should [organise game days](https://technology.blog.gov.uk/2015/02/06/running-a-game-day-for-gov-uk/) to practise [incident management](/standards/incident-management.html) and test disaster recovery procedures. Game days enable you to play out scenarios in a safe environment so you can test and learn from how you respond. These scenarios will help build familiarity and increase confidence that your emergency procedures will work when you most need them to.
-
-You can also practice incidents or recovery from disaster scenarios in a more low-pressure way. The GOV.UK PaaS team regularly spin the [Wheel of Misfortune](https://technology.blog.gov.uk/2021/03/04/wheel-of-misfortune-incident-rehearsal-for-gov-uk-paas/) to help new and existing team members gain experience and confidence working with the platform.
