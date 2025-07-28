@@ -1,22 +1,21 @@
 ---
 title: How to arrange and manage penetration tests
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2025-07-28
 review_in: 6 months
 ---
 
 # <%= current_page.data.title %>
 
-You should aim to run [penetration tests](https://www.gov.uk/service-manual/technology/vulnerability-and-penetration-testing) on your service at least every 12 months. You must discuss all significant changes with the MHCLG Cyber Security team. You must agree with the team when you will test and the scope of the tests. They will also assist with the procurement of external tests through an approved third party through the [National Cyber Security Centre (NCSC) CHECK scheme]. Alternatively, with the agreement of the TDA, a member of the Cyber Security Team can carry them out internally, depending on the requirements.
+You should aim to run [penetration tests](https://www.gov.uk/service-manual/technology/vulnerability-and-penetration-testing) on your service at least every 12 months. You must discuss all significant changes with the MHCLG [Cyber Security Team]. You must agree with the team when you will test and the scope of the tests. They will also assist with the procurement of external tests through an approved third party through the [National Cyber Security Centre (NCSC) CHECK scheme]. Alternatively, with the agreement of the [TDA (Technical Design Authority)](https://mhclg.sharepoint.com/sites/TechnicalDesignAuthorityPublic), a member of the [Cyber Security Team] can carry them out internally, depending on the requirements.
 
-You may need to schedule additional testing if you make significant changes to your service. You should meet with the IA team regularly to discuss ongoing changes.
-
-A significant change could be when you:
+You may need to schedule additional testing if you make significant changes to your service. You should meet with the [Cyber Security Team] regularly to discuss ongoing changes.
 
 A significant change could be when you:
-change a cloud service provider
-change stored data, for example if you introduce new data which can be classified as personal data under [GDPR]
-add a third-party partner, for example, a database processor or email provider (especially if the third-party partner is processing personal data)
-implement significant application changes or new features
+
+* change a cloud service provider
+* change stored data, for example if you introduce new data which can be classified as personal data under [GDPR]
+* add a third-party partner, for example, a database processor or email provider (especially if the third-party partner is processing personal data)
+* implement significant application changes or new features
 
 
 ## Scope your test
@@ -30,7 +29,7 @@ An IT Health Check or security review can include:
 * networking and networking device [Access Control List (ACL)][ACL] reviews
 * code reviews
 * infrastructure-as-code reviews
-* AWS configuration reviews
+* AWS/ Azure configuration reviews
 * red team engagements
 * vulnerability scans
 
@@ -47,9 +46,11 @@ Before testing, you should define and agree:
  
 ## Schedule a test
 
-If you plan to test any application, you must contact the Cyber Security team at least 3 months in advance so they can organise the procurement for you.
+If you plan to test any application contact the [Cyber Security Team] by raising a ticket on ServiceNow, search for a 'cyber assurance' and fill in the new requirement form. This must be done 3 months in advance so they can organise the penetration test with the contractor.
 
-If you are planning to ask the Cyber Security team to perform a test, you will need to enter the information listed in the [scope your test section](#scope-your-test) and the [prepare for your test section](#prepare-for-your-test) into a Rules of Engagement document, where a scope can be agreed and signed off by both parties. As with an external company, you should give at least 3 months' notice to make sure you can schedule the test at a time that suits project timelines.
+When contacting the [Cyber Security Team] to perform a test, ask them to send you the 'Security Domain Alignment' document to help scope your pen test.
+You will need to enter the information listed in the [scope your test section](#scope-your-test) and the [prepare for your test section](#prepare-for-your-test) into this document, the scope can then be agreed and signed off by both parties.
+As with an external company, you should give at least 3 months' notice to make sure you can schedule the test at a time that suits project timelines.
 
 ## Prepare for your test
 
@@ -64,24 +65,25 @@ To prepare your test environment you should:
 * note down the IP addresses of the testers and if necessary, add those IP addresses to any allow lists, making sure to remove them when testing has finished
 * create temporary credentials for testers (testers should provide their own SSH public keys)
 * give the tester the privileges required for the test, such as sudo access where appropriate
-* notify your service providers in advance. Note that in most cases AWS do not require advance permission for penetration tests on your applications
+* notify your service providers in advance. Note that in most cases AWS/ Azure do not require advance permission for penetration tests on your applications
 * give the tester a distribution list of approved report recipients
 
-Prior to the test, it may be beneficial to meet the lead tester and the MHCLG Cyber Security Team to discuss the test and confirm that all the prerequisites and necessary access are in place
+Prior to the test, it may be beneficial to meet the lead tester and the MHCLG [Cyber Security Team] to discuss the test and confirm that all the prerequisites and necessary access are in place
 
 ## During the Test
-The lead tester should draw your attention and that of the Cyber Security team to any critical vulnerabilities immediately identified
+The lead tester should draw your attention and that of the [Cyber Security Team] to any critical vulnerabilities immediately identified.
 
-It is advisable to meet at the end of each day with the lead tester and the Cyber Security team to discuss findings and the progress of the test.
+It is advisable to meet at the end of each day with the lead tester and the [Cyber Security Team] to discuss findings and the progress of the test.
 
 ## What to do after testing
 
-After your test, you should meet with the MHCLG Cyber Security team to discuss and triage (risk assess) the test results. You can then prioritise work to mitigate any issues identified in the test and schedule a retest if needed.
+After your test, you should meet with the MHCLG [Cyber Security Team] to discuss and triage (risk assess) the test results. You can then prioritise work to mitigate any issues identified in the test and schedule a retest if needed.
 
-Teams should work with the Cyber Security team, who can give advice, consult on fixing any issues and take appropriate further action when required.
+Teams should work with the [Cyber Security Team], who can give advice, consult on fixing any issues and take appropriate further action when required.
 
 
 [GDPR]: https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en
 [National Cyber Security Centre (NCSC) CHECK scheme]: https://www.ncsc.gov.uk/information/using-check-provider
 [ACL]: /standards/secrets-acl.html
+[Cyber Security Team]: https://intranet.communities.gov.uk/task/find-teams/corporate/digital/cyber-security/
 
