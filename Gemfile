@@ -1,5 +1,7 @@
 # If you do not have OpenSSL installed, change
 # the following line to use 'http://'
+ruby "3.4.5"
+
 source 'https://rubygems.org'
 
 # For faster file watcher updates on Windows:
