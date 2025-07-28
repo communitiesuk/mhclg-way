@@ -1,6 +1,6 @@
 ---
 title: How to manage alerts
-last_reviewed_on: 2000-01-01
+last_reviewed_on: 2025-07-28
 review_in: 6 months
 ---
 
@@ -20,7 +20,7 @@ You should only send an alert for things that need action. Alert text should be 
 
 Create alerts based on events affecting users, such as slow service requests or unavailable webpages. You should also track events like disks being full or almost full, or databases being down. These are both events that can lead to more serious alerts that do affect users.
 
-You must set up your alerts to distinguish between when something is wrong for a sustained period of time, and when it's a brief issue caused by temporary network conditions. [Prometheus][] supports this by using the `for` parameter in its alerting rule, which indicates the condition has to be true for a set period of time before it triggers an alert.
+You must set up your alerts to distinguish between when something is wrong for a sustained period of time, and when it's a brief issue caused by temporary network conditions. [Prometheus][] supports this by using the `for` parameter in its alerting rule, which indicates the condition has to be true for a set period of time before it triggers an alert. [AWS CloudWatch Metrics][] offers similar functionality by using a combination of Evaluation Periods and Datapoints for Alarm configuration settings.
 
 ### When you should not send an alert
 
@@ -51,14 +51,11 @@ You should manage alerts using a dedicated tool which will allow you to:
 * attach statuses to alerts, for example, in progress or resolved
 * gather data about alerts to help improve processes
 
-Recommended tools are:
-
-- [PagerDuty][] to send high-priority / interrupting alerts
-- [Zendesk][] to manage non-interrupting alerts as tickets
+Your team should establish a process for creating tickets in your backlog for non-interrupting alerts.
 
 You can also configure these tools to send alert notifications using email or Slack. However, you should only use email and Slack as additions to your primary alerting tool. If alerts only go to email or Slack, people may ignore, overlook, filter them out, or treat them like spam.
 
-We recommend using dashboards and information radiators, also known as Big Visible Charts (BVC), like [Smashing][] or [BlinkenJS][] in combination with alert management tools.
+You may wish to use dashboards and information radiators, also known as Big Visible Charts (BVC), such as [Smashing][] or [BlinkenJS][], in combination with alert management tools.
 
 ## Further reading
 
@@ -69,8 +66,6 @@ For more information refer to the:
 * Google SRE handbook to find out more about [site reliability engineering][]
 
 [service monitoring]: /standards/monitoring.html
-[PagerDuty]: https://www.pagerduty.com
-[Zendesk]: https://www.zendesk.com
 [Smashing]: https://github.com/Smashing/smashing
 [BlinkenJS]: https://github.com/alphagov/blinkenjs
 [information about monitoring]: /standards/monitoring.html
@@ -78,6 +73,7 @@ For more information refer to the:
 [more information on how to write alerts]: https://www.gov.uk/service-manual/technology/monitoring-the-status-of-your-service
 [include actionable information]: https://response.pagerduty.com/oncall/alerting_principles/#alert-content
 [Prometheus]: https://prometheus.io/
+[AWS CloudWatch Metrics]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html
 [how to monitor your service]: /standards/monitoring.html
 [Amazon Elastic Container Service (Amazon ECS)]: https://aws.amazon.com/ecs/
 [Kubernetes]: https://kubernetes.io/
