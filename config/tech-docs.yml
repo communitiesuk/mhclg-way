@@ -7,6 +7,8 @@ show_govuk_logo: false
 service_name: The MHCLG Way
 description: Technical standards and guidance used by teams building software at MHCLG
 
+relative_links: true
+
 # Links to show on right-hand-side of header
 header_links:
   GitHub: https://github.com/communitiesuk/mhclg-way
