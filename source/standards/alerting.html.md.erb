@@ -20,11 +20,11 @@ You should only send an alert for things that need action. Alert text should be 
 
 Create alerts based on events affecting users, such as slow service requests or unavailable webpages. You should also track events like disks being full or almost full, or databases being down. These are both events that can lead to more serious alerts that do affect users.
 
-You must set up your alerts to distinguish between when something is wrong for a sustained period of time, and when it's a brief issue caused by temporary network conditions. [Prometheus][] supports this by using the `for` parameter in its alerting rule, which indicates the condition has to be true for a set period of time before it triggers an alert. [AWS CloudWatch Metrics][] offers similar functionality by using a combination of Evaluation Periods and Datapoints for Alarm configuration settings.
+You must set up your alerts to distinguish between when something is wrong for a sustained period of time, and when it’s a brief issue caused by temporary network conditions. [Prometheus][] supports this by using the `for` parameter in its alerting rule, which indicates the condition has to be true for a set period of time before it triggers an alert. [AWS CloudWatch Metrics][] offers similar functionality by using a combination of Evaluation Periods and Datapoints for Alarm configuration settings.
 
 ### When you should not send an alert
 
-You do not need to send an alert if no action is needed. For example, an alert showing a system's status is really a monitoring tool and you should use a dashboard to display this information instead. The MHCLG Way has more guidance on [how to monitor your service][].
+You do not need to send an alert if no action is needed. For example, an alert showing a system’s status is really a monitoring tool and you should use a dashboard to display this information instead. The MHCLG Way has more guidance on [how to monitor your service][].
 
 Specific examples of issues that should not trigger an alert include:
 

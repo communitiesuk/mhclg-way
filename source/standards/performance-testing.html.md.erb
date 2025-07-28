@@ -8,7 +8,7 @@ review_in: 6 months
 
 Make sure your service performs the way users need it to. If your service does not perform as expected under extra load it will impact your users.
 
-You should run performance tests to check how your service performs in certain situations. For example, during a [denial-of-service attack (DoS attack)](https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection). Consider whether it is appropriate to integrate performance testing into your service's deployment pipeline, so that every change is checked for performance regressions.
+You should run performance tests to check how your service performs in certain situations. For example, during a [denial-of-service attack (DoS attack)](https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection). Consider whether it is appropriate to integrate performance testing into your service’s deployment pipeline, so that every change is checked for performance regressions.
 
 The Service Manual has more information about why you need to [test your service’s performance](https://www.gov.uk/service-manual/technology/test-your-services-performance) and how to start capacity planning and running performance tests.
 
@@ -53,7 +53,7 @@ Start with a low level of concurrent users and increase them to your anticipated
 ### Running your tests locally
 
 While designing and scripting your performance tests, you may be tempted to run them locally in order to develop them faster. 
-This is fine for development and small-scale testing, however, it is generally not a good idea to do this for larger-scale testing as you won't get accurate results.
+This is fine for development and small-scale testing, however, it is generally not a good idea to do this for larger-scale testing as you won’t get accurate results.
 
 Any and all of these things could negatively impact the results of your performance test:
 
@@ -81,7 +81,7 @@ If your service meets your capacity requirements, document its upper limits and 
 
 Testing tools should record the number of concurrent users, requests per second (RPS), HTTP response codes and timings. These reports help determine your service’s maximum supported capacity. If your service cannot meet your requirements or you find problems, you’ll need to diagnose them.
 
-You can fix common problems like inefficient database queries by introducing lazy loading and adding or altering indexes. If your web server stops or is slow to respond, it may be running out of available workers. This is a common issue when you're sending lots of requests to APIs and the workers become blocked awaiting a response. Adjusting web server configuration can help depending on your specific application and technology.
+You can fix common problems like inefficient database queries by introducing lazy loading and adding or altering indexes. If your web server stops or is slow to respond, it may be running out of available workers. This is a common issue when you’l sending lots of requests to APIs and the workers become blocked awaiting a response. Adjusting web server configuration can help depending on your specific application and technology.
 
 Problems with your infrastructure can be harder to resolve. For example, if your service is read-heavy you can introduce additional caching to improve performance.
 

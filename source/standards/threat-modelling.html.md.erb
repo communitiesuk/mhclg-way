@@ -6,13 +6,13 @@ review_in: 6 months
 
 # <%= current_page.data.title %>
 
-## What's a threat?
+## What’s a threat?
 
 A threat is an action that causes denial, alteration or disclosure of your
 assets that you are trying to protect. It could be a user database, a deployment
 pipeline or the integrity of web form submissions.
 
-## What's threat modelling?
+## What’s threat modelling?
 
 Threat modelling aims at identifying, prioritising and mitigating threats to a service. 
 
@@ -21,7 +21,7 @@ Threat modelling will help you:
 * Understand threats that are unique to your service, helping you to adopt security conscious behaviours during its design, development and operation
 * Focus mitigation efforts on the threats that matter – that is, threats that pose the greatest risk to the normal operation of your service
 * Ensure the right security controls are in place to match the threats your service faces
-* Adopt secure by design approach to your service throughout the service's lifecycle
+* Adopt secure by design approach to your service throughout the service’s lifecycle
 
 The best time to perform threat modelling activities is during the design phase;
 however, it can be done anytime and should become a continuous process in your
@@ -29,7 +29,7 @@ service team.
 
 Within MHCLG, the Cyber Security Team can support you with threat modelling your service, as well as advising you should you decide to carry it out yourself or through a third party.
 
-Within MHCLG, we follow the [Threat Modeling Manifesto][]'s
+Within MHCLG, we follow the [Threat Modeling Manifesto][]’s
 four questions:
 
 1. What are we working on?
@@ -89,7 +89,7 @@ After the discovery stage, you can make a copy of the
 [Threat Modelling Scoring template][] to use for noting down threats, the most
 likely actor, scoring, and tracking mitigation.
 
-Scoring is useful as it helps prioritise what's valid and what you should look into
+Scoring is useful as it helps prioritise what’s valid and what you should look into
 first.
 
 The difficulty is a rating between 0 (very easy) to 5 (hard); it should take
@@ -134,12 +134,12 @@ also important to consider any new threats.
 You should consider running the threat modelling sessions every year or when
 there are significant architectural changes planned.
 
-## Why's it necessary?
+## Why’s it necessary?
 
 Adam Shostack has produced an informative short video on this:
 [Why Threat Model?][]
 
-Adam explains that we threat model to anticipate problems when it's inexpensive
+Adam explains that we threat model to anticipate problems when it’s inexpensive
 to deal with them.
 
 How do you know what a problem is? Information and computer security is
@@ -149,7 +149,7 @@ often broken up into three main pillars, known as the CIA triad:
 - Information accessible to authorised people
 
 ### Integrity
-- Information that's correct
+- Information that’s correct
 
 ### Availability
 - Information available when needed
@@ -170,13 +170,13 @@ Here is a fun, alternative look at the
 
 STRIDE is a model of threats developed by Microsoft.
 
-It's a helpful tool for thinking about different potential attacks or
-vulnerabilities. If you're finding it hard coming up with potential
+It’s a helpful tool for thinking about different potential attacks or
+vulnerabilities. If you’l finding it hard coming up with potential
 attacks, you can use STRIDE to help stimulate ideas.
 
-Note that STRIDE is *not* useful as a taxonomy.  Some attacks don't
+Note that STRIDE is *not* useful as a taxonomy.  Some attacks don’t
 neatly fit into "spoofing" versus "tampering" versus "elevation of
-privilege".  That doesn't matter: the important thing is to come up
+privilege".  That doesn’t matter: the important thing is to come up
 with threats and write them down, not to ensure they are "correctly"
 categorised.
 
@@ -191,7 +191,7 @@ categorised.
 |Elevation of Privilege|Authorisation|
 
 ### Spoofing
-Spoofing occurs where malicious actors use another person's user credentials without
+Spoofing occurs where malicious actors use another person’s user credentials without
 their knowledge.
 
 It also includes attacks where systems mimic or disguise themselves as other systems, such
@@ -239,7 +239,7 @@ expected to view or alter it.
 
 Looking at the GOV.UK Pay service as an example; Pay is likely to attract attention from organised criminal groups and lower-level hackers/script kiddies who have financial motivations. Organised criminal groups are capable of a level of attack sophistication that would mean zero-day exploits, and more advanced techniques like replay attacks, and would be willing to use supply chain attacks as a route for access. State actors are likely to be less interested in Pay, except for disruptive actions to render the service unavailable.
 
-Applying this threat model, Pay requires a good level of cyber security (in addition to it's PCI-DSS requirements) and regular scanning/penetration testing is necessary to ensure that both basic cyber hygiene and more advanced attacks are accounted for.
+Applying this threat model, Pay requires a good level of cyber security (in addition to it’s PCI-DSS requirements) and regular scanning/penetration testing is necessary to ensure that both basic cyber hygiene and more advanced attacks are accounted for.
 
 This would contrast with a service like GOV.UK, where the threat is likely to be state sponsored or affiliated threats and lower-level hackers/script kiddies using common toolsets/bots with political/reputational motivations.
 

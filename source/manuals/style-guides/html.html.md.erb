@@ -60,11 +60,11 @@ Links should not open new tabs or windows by default, but if users choose to do 
 
 ### Visually hidden elements
 
-Sometimes it can be helpful to provide additional content for screen reader users that might not be needed for sighted users. For example, the 'Skip to main content' link covered earlier.
+Sometimes it can be helpful to provide additional content for screen reader users that might not be needed for sighted users. For example, the ‘Skip to main content’ link covered earlier.
 
 Do not use `display: none` on this text, as this will get ignored by screen readers.
 
-Instead, use CSS which ensures the text gets 'conceptually' rendered, even if the result is not visible on the screen. You can use the [Sass mixins from govuk-frontend](https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/utilities/_visually-hidden.scss) or the classes `govuk-visually-hidden` and `govuk-visually-hidden-focusable`.
+Instead, use CSS which ensures the text gets ‘conceptually’ rendered, even if the result is not visible on the screen. You can use the [Sass mixins from govuk-frontend](https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/utilities/_visually-hidden.scss) or the classes `govuk-visually-hidden` and `govuk-visually-hidden-focusable`.
 
 Visually hidden text is often a sign that something can be simplified or made visible to benefit sighted users too, so should be used sparingly.
 
