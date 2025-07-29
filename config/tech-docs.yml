@@ -1,6 +1,6 @@
 # Host to use for canonical URL generation (without trailing slash)
 host: https://communitiesuk.github.io/mhclg-way
-# service_link: /
+service_link: /
 
 # Header-related options
 show_govuk_logo: false
