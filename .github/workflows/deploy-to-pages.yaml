@@ -28,15 +28,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.0
       - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@bb6434c747fa7022e12fa1cae2a0951fcffcff26 # v1.253.0
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Build middleman site
         run: bundle exec middleman build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: "build"
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@decdde0ac072f6dcbe43649d82d9c635fff5b4e4 # v4.0.4
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
