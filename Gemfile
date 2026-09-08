@@ -1,17 +1,20 @@
 # If you do not have OpenSSL installed, change
 # the following line to use 'http://'
-ruby "3.4.5"
+ruby "4.0.6"
 
 source 'https://rubygems.org'
 
 # For faster file watcher updates on Windows:
-gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]
+gem 'wdm', '~> 0.1.0', platforms: [:windows]
 
 # Windows does not come with time zone data
-gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
+gem 'tzinfo-data', platforms: [:windows, :jruby]
 
 # Include the tech docs gem
 gem 'govuk_tech_docs'
 
+# Required explicitly from Ruby 4.0+ (removed from default gems)
+gem 'cgi'
+
 # Include linter to check for dead internal links
-gem 'html-proofer', '~> 5.2.0'
+gem 'html-proofer', '~> 5.2.2'
