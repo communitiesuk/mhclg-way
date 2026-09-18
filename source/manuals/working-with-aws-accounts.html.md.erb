@@ -1,6 +1,6 @@
 ---
 title: Working with AWS accounts
-last_reviewed_on: 2025-07-25
+last_reviewed_on: 2026-09-18
 review_in: 12 months
 ---
 
@@ -22,14 +22,12 @@ There are several command line tools you can use to work with AWS, such as:
 
 These tools need credentials to access AWS. We recommend using [aws-vault][] to manage your credentials.
 
-#### Installing aws-vault
+#### Installing and using aws-vault
 
 [aws-vault][] needs to be installed and available on your `PATH`. The
 easiest way to do this is via Homebrew: `brew install --cask aws-vault`.
 
-#### Using aws-vault  
 Follow the guidance in [Programmatic Access and Federated Access](https://mhclg.sharepoint.com/sites/CloudPlatforms/SitePages/Programmatic-Access-and-Federated-Access.aspx).
-
 
 You can execute commands with credentials stored in AWS Vault using the `aws-vault exec` command.
 For example, to list S3 buckets in the developer account run:
@@ -37,6 +35,22 @@ For example, to list S3 buckets in the developer account run:
 ```
 aws-vault exec developer -- aws s3 ls
 ```
+
+#### Securely working with awscli
+
+If you can't use aws-vault for any reason then be sure to never include credentials in URLs when working with awscli.
+
+It is a requirement from the Cyber team that credentials, authentication tokens, API keys, secrets, passwords, access
+keys, session identifiers, or other sensitive authentication information must not be included in URLs when validating
+requests to external services.
+
+Approved authentication methods are:
+
+* HTTP Authorization headers (Bearer tokens, OAuth tokens)
+* AWS IAM roles and temporary credentials
+* Signed requests (for example, AWS Signature Version 4)
+* Mutual TLS (mTLS) where appropriate
+* Credentials stored securely in approved secret management services
 
 [Amazon Web Services (AWS)]: https://aws.amazon.com/
 [aws-vault]: https://github.com/ByteNess/aws-vault#readme
