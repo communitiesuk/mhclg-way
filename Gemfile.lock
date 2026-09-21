@@ -81,19 +81,19 @@ GEM
     fiber-local (1.1.0)
       fiber-storage
     fiber-storage (1.0.1)
-    google-protobuf (4.36.1)
+    google-protobuf (4.36.2)
       bigdecimal
       rake (~> 13.3)
-    google-protobuf (4.36.1-arm64-darwin)
+    google-protobuf (4.36.2-arm64-darwin)
       bigdecimal
       rake (~> 13.3)
-    google-protobuf (4.36.1-x86_64-darwin)
+    google-protobuf (4.36.2-x86_64-darwin)
       bigdecimal
       rake (~> 13.3)
-    google-protobuf (4.36.1-x86_64-linux-gnu)
+    google-protobuf (4.36.2-x86_64-linux-gnu)
       bigdecimal
       rake (~> 13.3)
-    govuk_tech_docs (6.3.0)
+    govuk_tech_docs (6.4.1.0)
       autoprefixer-rails
       chronic
       concurrent-ruby
@@ -136,7 +136,7 @@ GEM
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     io-event (1.21.1)
-    json (3.0.1)
+    json (3.0.2)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
     listen (3.10.0)
@@ -247,14 +247,14 @@ GEM
     rexml (3.4.4)
     rouge (4.7.0)
     sass (3.4.25)
-    sass-embedded (1.104.0)
+    sass-embedded (1.104.1)
       google-protobuf (~> 4.31)
       rake (>= 13)
-    sass-embedded (1.104.0-arm64-darwin)
+    sass-embedded (1.104.1-arm64-darwin)
       google-protobuf (~> 4.31)
-    sass-embedded (1.104.0-x86_64-darwin)
+    sass-embedded (1.104.1-x86_64-darwin)
       google-protobuf (~> 4.31)
-    sass-embedded (1.104.0-x86_64-linux-gnu)
+    sass-embedded (1.104.1-x86_64-linux-gnu)
       google-protobuf (~> 4.31)
     sassc (2.4.0)
       ffi (~> 1.9)
