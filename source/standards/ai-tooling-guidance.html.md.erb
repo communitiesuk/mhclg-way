@@ -1,0 +1,319 @@
+---
+title: AI tooling guidance
+last_reviewed_on: 2026-09-30
+review_in: 1 year
+---
+
+# <%= current_page.data.title %>
+
+This page covers two things. The first applies to any AI tool at all. The rest is about AI
+coding assistants specifically, which carry their own approvals, training and rules.
+
+## Any AI tool must be approved first
+
+Whatever the tool does, and whether or not it touches code, only use AI tooling that has
+been approved for use by MHCLG. The
+[AI Register](https://intranet.communities.gov.uk/news/introducing-the-mhclg-ai-register-find-request-and-get-approval-for-the-ai-tools-you-need/)
+holds the list of approved tools, and is also where you request approval for something new.
+
+If the tool you want is not on the list, or you are not sure whether your intended use is
+covered, check with your team's AI Tooling Lead before using it.
+
+## What is an AI coding assistant?
+
+An AI coding assistant is a tool that uses artificial intelligence to help developers
+write, review, debug and navigate code. Rather than replacing developer expertise, it
+should work alongside you: suggesting code, explaining unfamiliar logic, helping diagnose
+errors, and accelerating repetitive tasks. Well known examples include GitHub Copilot,
+Google Gemini for code, and Claude Code. These tools are powered by large language models
+(LLMs) trained on large volumes of code and documentation.
+
+## Roles and responsibilities
+
+Three roles are involved in the safe use of AI coding assistants in a team. The AI
+Tooling Lead and the Lead Developer can be the same person. Each team should keep a
+record of who currently holds each role.
+
+### AI Tooling Lead
+
+Every team using AI coding assistants should have a named AI Tooling Lead. They are
+responsible for:
+
+* being the first point of contact for developers on their team with questions about AI
+  tooling, access, or appropriate use
+* maintaining the record of which developers on the team have completed the required
+  training and read this guidance
+* submitting and tracking AI Register entries and New Requirements requests in ServiceNow
+  for new tools or use cases
+* managing access to the tools, such as distributing API keys, and revoking it when
+  developers leave the team
+* raising material issues or new use cases on the AI Register for the relevant teams to
+  review
+
+### Lead Developer
+
+The team's Lead Developer, or equivalent technical lead, is responsible for:
+
+* nominating the AI Tooling Lead for the team, or taking on the role themselves
+* supporting the AI Tooling Lead on technical questions about tooling choice and
+  integration with the team's development workflow
+* ensuring AI related practice is discussed and shared through normal team rituals such as
+  code review, retros and tech huddles
+* being the escalation point for judgement calls on data classification where the developer
+  is unsure
+
+### Individual developers
+
+Every developer using an AI coding assistant is responsible for:
+
+* completing the required training before first use and sending confirmation to their AI
+  Tooling Lead
+* reading and following this guidance and the MHCLG
+  [10 Principles of safe and responsible generative AI](https://mhclg.sharepoint.com/:u:/r/sites/MyIT2/SitePages/10-Principles-of-safe-and-responsible-generative-AI%20for%20technical%20teams.aspx?csf=1&web=1&e=pFhhVQ)
+* exercising judgement on what data is and is not shared with the tool, and checking with
+  their Lead Developer when unsure
+* reviewing and understanding any AI generated code they submit in a pull request. The
+  author is accountable for the code, not the reviewer
+* raising anything unusual, unexpected, or potentially out of scope with their AI Tooling
+  Lead
+
+## Before you use AI coding assistants
+
+Before using any AI coding tool for the first time, you must complete all of the following.
+
+### Required training
+
+Complete every module marked as mandatory in both of these Civil Service Learning courses:
+
+* [Artificial Intelligence: Fundamentals](https://learn.civilservice.gov.uk/courses/3TI2CaGVQ8y8Gx06k-0Qsg)
+* [Artificial Intelligence: Understanding AI Ethics](https://learn.civilservice.gov.uk/courses/f7Sf3JPkTQiwYgr2qatDEw)
+
+### Policy and guidance
+
+Read the MHCLG
+[10 Principles of safe and responsible generative AI](https://mhclg.sharepoint.com/:u:/r/sites/MyIT2/SitePages/10-Principles-of-safe-and-responsible-generative-AI%20for%20technical%20teams.aspx?csf=1&web=1&e=pFhhVQ).
+
+### Confirm and record
+
+Once complete, send a brief email confirmation to your AI Tooling Lead, confirming you have
+read this guidance and completed the required training. This provides a lightweight record
+to evidence compliance should any issues arise later.
+
+## What data can I use with an AI coding assistant?
+
+You may only share code that is either:
+
+* classified as OFFICIAL, including closed source repositories, as long as it does not
+  contain secrets, credentials, personally identifiable information (PII), or anything
+  OFFICIAL-SENSITIVE or above, or
+* publicly available, for example open source libraries or public repositories
+
+You must not share the following, unless your team has an AI Register approval for the
+tool and use case that explicitly allows it:
+
+* personally identifiable information (PII)
+* anything classified as OFFICIAL-SENSITIVE or above
+* production data
+
+You must never share secrets, credentials, or API keys, whatever approvals are in place.
+
+If you are unsure of the data classification of something you want to share, do not share
+it and check with your Lead Developer first.
+
+## What can I use an AI coding assistant for?
+
+All use must follow the MHCLG guidance
+[10 Principles of safe and responsible generative AI](https://mhclg.sharepoint.com/:u:/r/sites/MyIT2/SitePages/10-Principles-of-safe-and-responsible-generative-AI%20for%20technical%20teams.aspx?csf=1&web=1&e=pFhhVQ).
+
+Approval is granted per tool and per use case, so check the AI Register entry for the tool
+you are using to see what its approval covers. Most coding assistant approvals cover four
+main areas. The examples below are illustrative and not exhaustive.
+
+**Writing code**
+
+* generating code to accelerate delivery across features, tests, and boilerplate
+* pair programming to work through implementation decisions
+* surfacing language and framework specific best practices inline
+* experimental or exploratory projects
+
+**Reviewing code**
+
+* assisting reviewers in spotting issues, inconsistencies, and improvements before human
+  sign-off
+* fine-tuning review behaviour via a config file in the repo
+
+**Debugging code**
+
+* pasting stacktraces to get explanations of failures, likely causes, and suggested fixes
+* feeding in logs during incident response to pinpoint issues, redacting any PII manually
+  before pasting
+
+**Navigating codebases**
+
+* explaining unfamiliar or legacy code to reduce onboarding and context switching time
+* understanding how different parts of the codebase relate to each other
+
+## What is not in scope
+
+Exactly what is in scope depends on the approval for the tool you are using. The following
+are unlikely to be covered by a standard coding assistant approval, and would each need
+their own request:
+
+* system integrations of any kind, described below
+* uses for anything involving OFFICIAL-SENSITIVE data or PII
+* use cases materially different from those described above
+* automating AI code deployment into production without human review
+* use outside of work for MHCLG
+
+If you have a new use case in mind, speak to your AI Tooling Lead in the first instance.
+
+## What do we mean by system integration?
+
+System integration means any programmatic connection between an AI coding assistant and
+another system, where the AI tool can read from or act on that system without a developer
+reviewing each action at the point it happens.
+
+Integrations broaden the blast radius of any mistake or compromise, so they are unlikely
+to be covered by an existing coding assistant approval, and need a separate application to
+the AI Register.
+
+What counts as a system integration:
+
+* using an AI tool as part of a product or service, for example calling an AI API from
+  application code to power a feature for end users
+* running an AI agent against a repository on a schedule or trigger, for example automated
+  vulnerability scanning, dependency updates, or code review bots that operate without a
+  developer in the loop
+* connecting an AI tool to an external service so it can act on your behalf without you
+  explicitly approving each action, for example posting to Slack or reading from Jira
+  directly rather than the tool suggesting the action to you
+
+What is not a system integration:
+
+* a developer running an AI coding assistant locally on their device, with the developer
+  reviewing and accepting each suggestion or action
+* copying output from an AI tool and manually pasting it into another system, for example
+  into a Jira ticket or a pull request description
+
+If you are planning something that sits between these examples, or you are not sure which
+side of the line you are on, speak to your AI Tooling Lead before starting.
+
+## Best practice
+
+AI coding assistants can be powerful productivity tools, but they require critical
+engagement to be used effectively and safely. The following practices are strongly
+recommended.
+
+**Do not trust output blindly.** AI generated code can look correct but contain subtle bugs,
+security issues, or incorrect logic. Always review what is produced before accepting it.
+
+**Review and understand before you accept.** If you cannot explain what the generated code
+does, do not use it. You are accountable for everything that goes into a pull request,
+regardless of how it was produced.
+
+**Ask it to review its own work.** Prompting the tool to check its output, identify
+potential issues, or suggest improvements often surfaces problems before you do.
+
+**Give as much context as possible.** The more detail you provide about the codebase, the
+problem, the constraints and the expected behaviour, the better the output will be.
+
+**Use it to learn, not just to receive.** Ask the tool to explain what it has generated and
+why. This builds understanding and helps you catch mistakes.
+
+**Verify facts and references.** AI tools can hallucinate, inventing function names, library
+versions, or behaviours that do not exist. Always verify against official documentation.
+
+**Keep prompts and context free of sensitive data.** Review the data guidance above before
+sharing any code or context with the tool.
+
+**Human review is mandatory.** All AI generated output must be peer reviewed before it is
+merged or used. As the developer raising the pull request, you are responsible for reviewing
+and understanding any AI generated code before it is submitted, regardless of how it was
+generated. The responsibility for validating AI generated code sits with the author, not the
+reviewer. At least one additional reviewer must then approve it as part of the standard
+[pull request process](/standards/pull-requests.html).
+
+## Ongoing governance
+
+* AI coding assistant usage and expectations will be discussed and shaped through the
+  Technology Community of Practice (TCOP)
+* release notes and data usage policies of AI coding assistant providers should be
+  monitored for material changes: by the issuing team for tooling issued department wide,
+  and by the team's AI Tooling Lead where the tool was procured by the team
+
+## Summary checklist
+
+Before using an AI coding assistant for the first time, confirm you have:
+
+* completed every required module in Artificial Intelligence: Fundamentals and Artificial
+  Intelligence: Understanding AI Ethics on Civil Service Learning
+* read the MHCLG 10 Principles of safe and responsible generative AI
+* sent an email confirmation to your AI Tooling Lead
+* understood what data can and cannot be shared with the tool
+* understood that all AI generated code must be peer reviewed before merging
+
+## How to get access
+
+Access to AI coding assistants requires approval and is not self-serve. Whichever tool you
+want, start by speaking to your AI Tooling Lead.
+
+### GitHub Copilot
+
+MHCLG is running a pilot, and access will start rolling out more widely if it succeeds.
+Speak to your AI Tooling Lead for the current position and whether you can join.
+
+*This is accurate as of September 2026.*
+
+### Claude Code
+
+Access to Claude Code is available through the
+[MHCLG AI Gateway](https://mhclgdigital.blog.gov.uk/2026/09/15/the-mhclg-ai-gateway-enabling-more-effective-and-safer-adoption-of-ai-in-our-digital-services/).
+Speak to your AI Tooling Lead about applying.
+
+There is currently no other route to department issued Claude Code access. If your team
+has a procurement route of its own, you can pursue access yourself with a new request,
+following the same steps as for any other tool below.
+
+*This is accurate as of September 2026.*
+
+### Any other tool
+
+A new tool, or an existing tool used in a new way, needs a request on the AI Register. Your
+AI Tooling Lead can submit this on your behalf.
+
+You will also need Cyber approval via a New Requirements request in ServiceNow, as that is
+required before the tool can be installed on MHCLG devices. Even if the same tool and the same
+use case have already been approved for another team, you may still need to make a new
+request for your own team.
+
+Whichever route applies, complete the required training set out above and send confirmation
+to your AI Tooling Lead before you start using the tool.
+
+## Additional learning
+
+These courses are available for developers who want to deepen their understanding of AI
+beyond the required training. All are free.
+
+**Anthropic Academy**
+
+* [Claude Code 101](https://anthropic.skilljar.com/claude-code-101)
+
+**Microsoft Learn**
+
+* [GitHub Copilot Fundamentals: Part 1](https://learn.microsoft.com/en-us/training/paths/copilot/)
+* [GitHub Copilot Fundamentals: Part 2](https://learn.microsoft.com/en-us/training/paths/gh-copilot-2/)
+
+**Civil Service Learning**
+
+* [Artificial Intelligence: Fundamentals](https://learn.civilservice.gov.uk/courses/3TI2CaGVQ8y8Gx06k-0Qsg)
+* [Artificial Intelligence: Understanding AI Ethics](https://learn.civilservice.gov.uk/courses/f7Sf3JPkTQiwYgr2qatDEw)
+* [Artificial Intelligence: Generative AI Tools and Applications](https://learn.civilservice.gov.uk/courses/bjJYREYAS-SAnsrg9HVaGQ)
+* [Artificial Intelligence: Working with Large Language Models](https://learn.civilservice.gov.uk/courses/hSsuur6CR-K_-QsXhUxO0Q)
+* [Artificial Intelligence: Technical Curriculum](https://learn.civilservice.gov.uk/courses/tULvvOtbQaGmjLo9bazHtQ)
+* [Artificial Intelligence: Machine Learning and Deep Learning](https://learn.civilservice.gov.uk/courses/Bv0vdvyaQ7GuzX2Qgg46oA)
+* [Artificial Intelligence: Natural Language Processing and Speech Recognition](https://learn.civilservice.gov.uk/courses/yBJYpdlUSEmpVWi1YLImUw)
+* [Artificial Intelligence: Computer Vision](https://learn.civilservice.gov.uk/courses/OMT6z8o0S9yhQaIP8dbTQg)
+* [Artificial Intelligence: The Business Value of AI](https://learn.civilservice.gov.uk/courses/oPEgywmEQumlVAmXlgnRqw)
+* [Artificial Intelligence for All: Part 1, An Introduction to AI in the Civil Service](https://learn.civilservice.gov.uk/courses/J0zd03KuTOKDmt7eqrZPuw)
+* [Artificial Intelligence for All: Part 2, Building Practical AI Skills in the Civil Service](https://learn.civilservice.gov.uk/courses/lgiIAbrmRuKBRn-UQzaZ5w)
+* [Artificial Intelligence for All: An SCS Pathway](https://learn.civilservice.gov.uk/courses/HhqbQFcVTTyKUYczVT6Exw)
