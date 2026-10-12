@@ -37,7 +37,7 @@ jobs:
     # Share data between the build and deploy jobs so we don't need to run `npm run build` again on deploy
     # Upload the deploy folder as an artifact so it can be downloaded and used in the deploy job
     - name: Upload artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
       if: ${{ inputs.upload-artifact }}
       with:
           name: build
