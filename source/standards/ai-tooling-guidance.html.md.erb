@@ -101,21 +101,28 @@ to evidence compliance should any issues arise later.
 
 ## What data can I use with an AI coding assistant?
 
-You may only share code that is either:
+What you can share depends on the tool. Each tool's entry on the AI Register sets the
+highest classification of data it is approved for, and any conditions that come with it.
+Check the entry for the tool you are using before sharing anything beyond the baseline
+below.
 
-* classified as OFFICIAL, including closed source repositories, as long as it does not
-  contain secrets, credentials, personally identifiable information (PII), or anything
-  OFFICIAL-SENSITIVE or above, or
+For example, GitHub Copilot is approved for OFFICIAL-SENSITIVE code, but only in private
+repositories (accurate as of October 2026).
+
+### The baseline
+
+Unless the approval for your tool allows more, you may only share code that is either:
+
+* classified as OFFICIAL, including closed source repositories, or
 * publicly available, for example open source libraries or public repositories
 
-You must not share the following, unless your team has an AI Register approval for the
-tool and use case that explicitly allows it:
+Under the baseline, you must not share:
 
 * personally identifiable information (PII)
 * anything classified as OFFICIAL-SENSITIVE or above
 * production data
 
-You must never share secrets, credentials, or API keys, whatever approvals are in place.
+Whatever approvals are in place, never share secrets, credentials, or API keys.
 
 If you are unsure of the data classification of something you want to share, do not share
 it and check with your Lead Developer first.
@@ -160,7 +167,8 @@ are unlikely to be covered by a standard coding assistant approval, and would ea
 their own request:
 
 * system integrations of any kind, described below
-* uses for anything involving OFFICIAL-SENSITIVE data or PII
+* uses involving OFFICIAL-SENSITIVE data or PII, where the tool's approval does not
+  already cover them
 * use cases materially different from those described above
 * automating AI code deployment into production without human review
 * use outside of work for MHCLG
@@ -259,10 +267,9 @@ want, start by speaking to your AI Tooling Lead.
 
 ### GitHub Copilot
 
-MHCLG is running a pilot, and access will start rolling out more widely if it succeeds.
-Speak to your AI Tooling Lead for the current position and whether you can join.
-
-*This is accurate as of September 2026.*
+MHCLG is running a pilot (accurate as of September 2026), and access will start rolling
+out more widely if it succeeds. Speak to your AI Tooling Lead for the current position and
+whether you can join.
 
 ### Claude Code
 
@@ -270,11 +277,9 @@ Access to Claude Code is available through the
 [MHCLG AI Gateway](https://mhclgdigital.blog.gov.uk/2026/09/15/the-mhclg-ai-gateway-enabling-more-effective-and-safer-adoption-of-ai-in-our-digital-services/).
 Speak to your AI Tooling Lead about applying.
 
-There is currently no other route to department issued Claude Code access. If your team
-has a procurement route of its own, you can pursue access yourself with a new request,
-following the same steps as for any other tool below.
-
-*This is accurate as of September 2026.*
+There is no other route to department issued Claude Code access (accurate as of
+September 2026). If your team has a procurement route of its own, you can pursue access
+yourself with a new request, following the same steps as for any other tool below.
 
 ### Any other tool
 
