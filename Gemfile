@@ -17,4 +17,4 @@ gem 'govuk_tech_docs'
 gem 'cgi'
 
 # Include linter to check for dead internal links
-gem 'html-proofer', '~> 5.2.2'
+gem 'html-proofer', '~> 5.2.3'
