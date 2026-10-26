@@ -4,14 +4,10 @@ service_link: /
 phase: Beta
 
 # Header-related options
-show_govuk_logo: false
 service_name: The MHCLG Way
 description: Technical standards and guidance used by teams building software at MHCLG
 
-# Links to show on right-hand-side of header
-header_links:
-  GitHub: https://github.com/communitiesuk/mhclg-way
-
+# Footer-related options
 footer_links: 
   Accessibility: /accessibility.html
 
